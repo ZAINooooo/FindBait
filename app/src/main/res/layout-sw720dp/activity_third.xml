@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".ThirdScreen"
+    android:background="@drawable/bg1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="275dp"
+            android:layout_marginTop="40dp"
+            android:layout_height="255dp"
+            app:srcCompat="@drawable/logobordered" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/clock"/>
+            <TextView
+                android:id="@+id/date_value"
+                android:paddingLeft="4sp"
+                android:layout_width="wrap_content"
+                android:textSize="30dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:text="Friday, 17/2/19, 10:35 PM"
+                android:textColor="#943938"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/login_btn"
+            android:layout_width="200dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/loginhere" />
+
+        <GridLayout
+            android:id="@+id/grid"
+            android:layout_width="550dp"
+            android:layout_height="550dp"
+            android:columnCount="2"
+            android:rowCount="2"
+            >
+
+            <ImageView
+                android:layout_height="280dp"
+                android:layout_width="280dp"
+                android:layout_row="0"
+                android:layout_column="0"
+                app:srcCompat="@drawable/propertiesicon" />
+
+            <ImageView
+                android:layout_height="280dp"
+                android:layout_width="280dp"
+                android:layout_row="0"
+                android:layout_column="1"
+                app:srcCompat="@drawable/maintenanceicon" />
+
+            <ImageView
+                android:layout_height="280dp"
+                android:layout_width="280dp"
+                android:layout_row="1"
+                android:layout_column="0"
+                app:srcCompat="@drawable/feedbackicon" />
+
+            <ImageView
+                android:layout_height="280dp"
+                android:layout_width="280dp"
+                android:layout_row="1"
+                android:layout_column="1"
+                app:srcCompat="@drawable/contactusicon" />
+        </GridLayout>
+
+
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:rowCount="1"
+            android:columnCount="4"
+            android:layout_marginBottom="50dp"
+            android:layout_marginTop="20dp"
+            >
+
+            <ImageView
+                android:padding="0dp"
+                android:layout_width="70dp"
+android:layout_height="60dp"
+
+                android:layout_row="0"
+                android:layout_column="0"
+                android:src="@drawable/facebook"
+                />
+            <ImageView
+                android:padding="0dp"
+                android:layout_row="0"
+                android:layout_width="60dp"
+                android:layout_marginLeft="5dp"
+
+                android:layout_height="60dp"
+                android:layout_column="1"
+                android:src="@drawable/instagram"
+                />
+            <ImageView
+                android:padding="1dp"
+                android:layout_row="0"
+                android:layout_width="60dp"
+                android:layout_marginLeft="5dp"
+
+                android:layout_height="60dp"
+                android:layout_column="2"
+                android:src="@drawable/twitter"
+                />
+            <ImageView
+                android:padding="1dp"
+                android:layout_row="0"
+                android:layout_width="60dp"
+                android:layout_marginLeft="5dp"
+
+                android:layout_height="60dp"
+                android:layout_column="3"
+                android:src="@drawable/youtube"
+                />
+
+        </GridLayout>
+
+
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"
+
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/home"
+            android:layout_weight="1"
+            android:padding="2dp"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/rateus"
+            android:layout_weight="1"
+            android:padding="2dp"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/aboutus"
+            android:layout_weight="1"
+            android:padding="2dp"/>
+    </LinearLayout>
+
+
+
+</RelativeLayout>

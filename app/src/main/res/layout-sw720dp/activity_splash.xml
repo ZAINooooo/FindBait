@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#000000"
+    android:alpha="0.9"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@mipmap/bg1"
+
+        android:alpha="1"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.3">
+
+
+
+
+
+        <RelativeLayout
+            android:id="@+id/nj"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="250dp"
+            android:alpha="1"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imgLogo"
+                android:layout_width="500dp"
+                android:layout_height="500dp"
+                android:src="@mipmap/splash_icon"
+                android:layout_centerHorizontal="true"
+                />
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/textVersion2"
+            android:layout_below="@id/nj"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="-20dp"
+            android:layout_marginBottom="60dp"
+            android:layout_height="wrap_content"
+            android:text="Let Us Guide You New
+            \n            Home!"
+            android:layout_marginLeft="210dp"
+            android:textColor="#ffffff"
+            android:textSize="35sp"
+            android:textStyle="bold|normal"
+            android:fontFamily="@font/montserrat" />
+
+
+
+        <ImageView
+            android:id="@+id/btn_started"
+            android:layout_width="440dp"
+            android:layout_height="200dp"
+            android:layout_below="@id/textVersion2"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/get_started"
+            />
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>
