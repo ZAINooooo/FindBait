@@ -26,7 +26,7 @@ import java.util.Locale;
 public class ThirdScreen extends AppCompatActivity {
     Date parsed;
 
-    ImageView btn_started;
+    ImageView btn_started,feedback_image2;
    TextView date_value;
 String  result;
 
@@ -40,11 +40,22 @@ String  result;
 
         btn_started = (ImageView) findViewById(R.id.login_btn);
         date_value = findViewById(R.id.date_value);
+        feedback_image2 = findViewById(R.id.feedback_image2);
+
 
 //        SystemBarTintManager tintManager = new SystemBarTintManager(this);
 //        tintManager.setNavigationBarTintResource(R.color.black);
 //
 //
+
+        feedback_image2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                        startActivity(new Intent(ThirdScreen.this , FeedbackActivity.class));
+        finish();
+            }
+        });
+
 
         getWindow().setStatusBarColor(Color.TRANSPARENT);
 //// clear FLAG_TRANSLUCENT_STATUS flag:
@@ -106,7 +117,7 @@ String  result;
 date_value.setText("  "+weekday_name +", " +  datesssss +", " +  ""+result +" " +  weekday_names);
 
 
-        getWindow().setStatusBarColor(Color.TRANSPARENT);
+//        getWindow().setStatusBarColor(Color.TRANSPARENT);
 
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 

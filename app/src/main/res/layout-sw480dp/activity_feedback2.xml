@@ -11,14 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="center"
-        android:layout_above="@id/bottom_navigation">
+        android:gravity="center">
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="225dp"
-            android:layout_marginTop="40dp"
-            android:layout_height="195dp"
+            android:layout_width="125dp"
+            android:layout_height="128dp"
+            android:layout_marginTop="30dp"
             app:srcCompat="@drawable/logobordered" />
 
         <LinearLayout
@@ -29,94 +28,128 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="3dp"
                 android:src="@drawable/clock"/>
             <TextView
-                android:id="@+id/date_value"
+                android:id="@+id/date_value2"
                 android:paddingLeft="4sp"
+                android:textSize="15dp"
+                android:textStyle="bold"
                 android:layout_width="wrap_content"
-                android:textSize="20dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat"
                 android:text="Friday, 17/2/19, 10:35 PM"
                 android:textColor="#943938"/>
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/login_btn"
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Your feedback matters"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_gravity="center_horizontal" />
+
+
+        <EditText
+            android:id="@+id/customer_info"
+            android:layout_width="300dp"
+            android:layout_height="220dp"
+            android:hint="Please enter your feedback here"
+            android:paddingLeft="20dp"
+            android:maxLength="300"
+            android:gravity="start"
+            android:padding="10dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rectangle_388"
+            android:textSize="13sp"
+            android:fontFamily="@font/montserrat"
+            />
+
+
+        <Button
+            android:id="@+id/btnss"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/loginhere" />
+            android:layout_marginTop="10dp"
+            android:text="Submit your feedback"
+            android:textColor="#FFFF"
+            android:textSize="18dp"
+            android:textAllCaps="false"
+            android:background="@drawable/rectangle_389"
+            android:layout_gravity="center_horizontal"/>
 
-        <GridLayout
-            android:id="@+id/grid"
-            android:layout_width="350dp"
-            android:layout_height="350dp"
-            android:columnCount="2"
-            android:rowCount="2"
-           >
+        <!--<ImageView-->
+        <!--android:id="@+id/login_btn"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:background="@drawable/loginhere" />-->
 
-            <ImageView
-                android:layout_height="180dp"
-                android:layout_width="180dp"
-                android:layout_row="0"
-                android:layout_column="0"
-                app:srcCompat="@drawable/propertiesicon" />
+        <!--<GridLayout-->
+        <!--android:id="@+id/grid"-->
+        <!--android:layout_width="260dp"-->
+        <!--android:layout_height="260dp"-->
+        <!--android:columnCount="2"-->
+        <!--android:rowCount="2"-->
+        <!--android:layout_marginBottom="10dp">-->
 
-            <ImageView
-                android:layout_height="180dp"
-                android:layout_width="180dp"
-                android:layout_row="0"
-                android:layout_column="1"
-                app:srcCompat="@drawable/maintenanceicon" />
+        <!--<ImageView-->
+        <!--android:layout_height="130dp"-->
+        <!--android:layout_width="130dp"-->
+        <!--android:layout_row="0"-->
+        <!--android:layout_column="0"-->
+        <!--app:srcCompat="@drawable/propertiesicon" />-->
 
-            <ImageView
-                android:id="@+id/feedback_image2"
-                android:layout_height="180dp"
-                android:layout_width="180dp"
-                android:layout_row="1"
-                android:layout_column="0"
-                app:srcCompat="@drawable/feedbackicon" />
+        <!--<ImageView-->
+        <!--android:layout_height="130dp"-->
+        <!--android:layout_width="130dp"-->
+        <!--android:layout_row="0"-->
+        <!--android:layout_column="1"-->
+        <!--app:srcCompat="@drawable/maintenanceicon" />-->
 
-            <ImageView
-                android:layout_height="180dp"
-                android:layout_width="180dp"
-                android:layout_row="1"
-                android:layout_column="1"
-                app:srcCompat="@drawable/contactusicon" />
-        </GridLayout>
+        <!--<ImageView-->
+        <!--android:layout_height="130dp"-->
+        <!--android:layout_width="130dp"-->
+        <!--android:layout_row="1"-->
+        <!--android:layout_column="0"-->
+        <!--app:srcCompat="@drawable/feedbackicon" />-->
+
+        <!--<ImageView-->
+        <!--android:layout_height="130dp"-->
+        <!--android:layout_width="130dp"-->
+        <!--android:layout_row="1"-->
+        <!--android:layout_column="1"-->
+        <!--app:srcCompat="@drawable/contactusicon" />-->
+        <!--</GridLayout>-->
 
 
         <GridLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:rowCount="1"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="110dp"
             android:columnCount="4"
 
             >
             <ImageView
                 android:padding="1dp"
                 android:layout_row="0"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
                 android:layout_column="0"
                 android:src="@drawable/facebook"
                 />
             <ImageView
                 android:padding="1dp"
                 android:layout_row="0"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
                 android:layout_column="1"
                 android:src="@drawable/instagram"
                 />
             <ImageView
                 android:padding="1dp"
                 android:layout_row="0"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
                 android:layout_column="2"
                 android:src="@drawable/twitter"
                 />
@@ -124,14 +157,23 @@
                 android:padding="1dp"
                 android:layout_row="0"
                 android:layout_column="3"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
                 android:src="@drawable/youtube"
                 />
 
         </GridLayout>
 
+
+
+
+
+
+
+
+
+
+
     </LinearLayout>
+
 
 
     <LinearLayout
@@ -163,4 +205,5 @@
             android:padding="2dp"/>
     </LinearLayout>
 
+    <!--</RelativeLayout>-->
 </RelativeLayout>

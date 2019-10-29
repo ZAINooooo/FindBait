@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ThirdScreen"
     android:background="@drawable/bg1">
-
-
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="center"
-        >
+        android:gravity="center">
 
         <ImageView
             android:id="@+id/imageView"
@@ -20,86 +19,90 @@
             android:layout_height="128dp"
             android:layout_marginTop="30dp"
             app:srcCompat="@drawable/logobordered" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_margin="10dp">
-            <TextView
-                android:textColor="#000000"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Login Here!"
-                android:fontFamily="@font/montserrat"
-                android:textSize="30dp"
-                android:textStyle="bold"/>
-            <TextView
-                android:textColor="#000000"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat"
+            android:orientation="horizontal">
 
-                android:text="Easiest way to manage your request!"
-                android:textSize="15dp" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:src="@drawable/clock"/>
+            <TextView
+                android:id="@+id/date_value1"
+                android:paddingLeft="4sp"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:text="Friday, 17/2/19, 10:35 PM"
+                android:textColor="#943938"/>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="260dp"
-            android:layout_height="260dp"
-            android:orientation="vertical"
-            android:gravity="center">
-            <EditText
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
 
-                android:hint="Email Address"
-                android:gravity="center"
-                android:singleLine="true"
-                android:paddingLeft="4dp"
-                android:inputType="textEmailAddress"
-                android:paddingRight="4dp"
-                android:textColorHint="#000000"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/txtbackground"/>
-            <EditText
-                android:hint="Passoword"
-                android:paddingLeft="4dp"
-                android:paddingRight="4dp"
-                android:gravity="center"
-                android:singleLine="true"
-                android:textColorHint="#000000"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:background="@drawable/txtbackground"/>
-            <Button
-                android:id="@+id/login_btn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/btnbackground"
-                android:text="Login"
-                android:textColor="#ffffff"/>
+            android:src="@drawable/group_70"
+            android:layout_gravity="center_horizontal"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hi, Muhammad"
+            android:textStyle="bold"
+            android:fontFamily="@font/montserrat"
+            android:layout_gravity="center_horizontal"
+            />
 
-            <TextView
-                android:id="@+id/forgot_password"
-                android:textColor="#000000"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat"
+        <GridLayout
+            android:id="@+id/grid"
+            android:layout_width="300dp"
+            android:layout_height="290dp"
+            android:columnCount="2"
+            android:rowCount="2"
+            android:layout_marginBottom="10dp">
 
-                android:text="Forgot Password?"
-                android:textSize="15dp" />
+            <ImageView
+                android:layout_height="150dp"
+                android:layout_width="150dp"
+                android:layout_row="0"
+                android:layout_column="0"
+                app:srcCompat="@drawable/propertiesicon" />
 
+            <ImageView
+                android:layout_height="150dp"
+                android:layout_width="150dp"
+                android:layout_row="0"
+                android:layout_column="1"
+                app:srcCompat="@drawable/maintenanceicon" />
 
-        </LinearLayout>
+            <ImageView
+                android:id="@+id/feedback_image"
+                android:layout_height="150dp"
+                android:layout_width="150dp"
+                android:layout_row="1"
+                android:layout_column="0"
+                app:srcCompat="@drawable/feedbackicon" />
+
+            <ImageView
+                android:layout_height="150dp"
+                android:layout_width="150dp"
+                android:layout_row="1"
+                android:layout_column="1"
+                app:srcCompat="@drawable/contactusicon" />
+        </GridLayout>
 
 
         <GridLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:rowCount="1"
-
+            android:layout_marginTop="60dp"
             android:columnCount="4"
 
             >
@@ -134,9 +137,13 @@
 
 
 
+
+
+
+
+
+
     </LinearLayout>
-
-
 
 
 
@@ -146,9 +153,9 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:background="#ffffff">
+        android:background="#FFFFFF"
 
-
+        >
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -169,4 +176,5 @@
             android:padding="2dp"/>
     </LinearLayout>
 
+    <!--</RelativeLayout>-->
 </RelativeLayout>

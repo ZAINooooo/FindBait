@@ -1,27 +1,120 @@
-//package com.danyal.findabait;
-//
-//import androidx.appcompat.app.AppCompatActivity;
-//import androidx.recyclerview.widget.GridLayoutManager;
-//import androidx.recyclerview.widget.RecyclerView;
-//
-//import android.content.res.Configuration;
-//import android.os.Bundle;
-//import android.widget.Toast;
-//
-//import java.util.ArrayList;
-//
-//public class Home_Screen extends AppCompatActivity implements RecyclerViewAdapter.ItemListener{
-//
-//    RecyclerView recyclerView;
-//    ArrayList<DataModel> arrayList;
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.home_screen);
-//
-//
-//
+package com.danyal.findabait;
+
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Intent;
+import android.content.res.Configuration;
+import android.graphics.Color;
+import android.icu.text.SimpleDateFormat;
+import android.icu.util.TimeZone;
+import android.os.Build;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
+
+//implements RecyclerViewAdapter.ItemListener
+
+public class Home_Screen extends AppCompatActivity {
+
+    RecyclerView recyclerView;
+    ArrayList<DataModel> arrayList;
+
+    Date parsed;
+    String  result;   TextView date_value1;
+ImageView feedback_image;
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_home);
+
+
+
+
+        date_value1 = findViewById(R.id.date_value1);
+        feedback_image= findViewById(R.id.feedback_image);
+
+        getWindow().setStatusBarColor(Color.TRANSPARENT);
+
+
+
+
+        feedback_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(Home_Screen.this , FeedbackActivity.class));
+                finish();
+            }
+        });
+        String weekday_name2 = new SimpleDateFormat("EEEE", Locale.ENGLISH).format(System.currentTimeMillis());  //Fruday
+        Log.d("Day_is", weekday_name2);
+
+
+        String datesssss2 = new SimpleDateFormat("dd/MM/yy", Locale.getDefault()).format(new Date());
+        Log.d("Date_is", datesssss2);
+        SimpleDateFormat format2 = new SimpleDateFormat("dd/MM/yy");
+        try {
+            parsed = format2.parse(datesssss2);
+            TimeZone tz = TimeZone.getTimeZone("Asia/Dubai");
+            format2.setTimeZone(tz);
+
+            result = format2.format(parsed);
+            Log.d("Date_is44",result);
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
+
+
+
+        String datesssss3 = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
+        Log.d("Date_is2", ""+datesssss3);
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+        try {
+            parsed = format.parse(datesssss3);
+            TimeZone tz = TimeZone.getTimeZone("Asia/Dubai");
+            format.setTimeZone(tz);
+
+            result = format.format(parsed);
+            Log.d("Date_is44",result);
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
+
+
+        String weekday_names22 = new SimpleDateFormat("a", Locale.ENGLISH).format(System.currentTimeMillis());
+        Log.d("Date_is34", weekday_names22);
+
+        String weekday_names = new SimpleDateFormat("a", Locale.ENGLISH).format(System.currentTimeMillis());
+        Log.d("Date_is3", weekday_names);
+
+        date_value1.setText("  "+weekday_name2 +", " +  datesssss2 +", " +  ""+result +" " +weekday_names22);
+
+
+
+
+
+
+
+
 //        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 //        arrayList = new ArrayList<>();
 //        arrayList.add(new DataModel("Item 1", R.drawable.battle, "#09A9FF"));
@@ -96,4 +189,5 @@
 //        Toast.makeText(getApplicationContext(), item.text + " is clicked", Toast.LENGTH_SHORT).show();
 //
 //    }
-//}
+    }
+}

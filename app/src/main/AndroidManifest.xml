@@ -9,10 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ForgotPassword"
+        <activity android:name=".FeedbackActivity"
             android:windowSoftInputMode="stateHidden"></activity>
-        <activity android:name=".sss" />
-        <activity android:name=".SplashScreenMain"
+        <activity
+            android:name=".ForgotPassword"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".SplashScreenMain"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,12 +23,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SplashScreen"
-            android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".ThirdScreen"
-            android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".LoginActivity"
-            android:windowSoftInputMode="stateHidden"/>
+        <activity
+            android:name=".SplashScreen"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".ThirdScreen"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".LoginActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Home_Screen"
+            android:windowSoftInputMode="stateHidden" />
     </application>
 
 </manifest>

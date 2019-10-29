@@ -77,6 +77,7 @@
                 android:inputType="textPassword"
                 android:background="@drawable/txtbackground"/>
             <Button
+                android:id="@+id/login_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btnbackground"
@@ -112,18 +113,24 @@
             <ImageView
                 android:padding="1dp"
                 android:layout_row="0"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_column="0"
                 android:src="@drawable/facebook"
                 />
             <ImageView
                 android:padding="1dp"
                 android:layout_row="0"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_column="1"
                 android:src="@drawable/instagram"
                 />
             <ImageView
                 android:padding="1dp"
                 android:layout_row="0"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_column="2"
                 android:src="@drawable/twitter"
                 />
@@ -131,6 +138,8 @@
                 android:padding="1dp"
                 android:layout_row="0"
                 android:layout_column="3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:src="@drawable/youtube"
                 />
 

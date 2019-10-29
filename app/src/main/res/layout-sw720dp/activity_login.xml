@@ -85,6 +85,7 @@
                 android:inputType="textPassword"
                 android:background="@drawable/txtbackground"/>
             <Button
+                android:id="@+id/login_btn"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:background="@drawable/btnbackground"

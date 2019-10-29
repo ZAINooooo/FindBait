@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/clock"/>
             <TextView
-                android:id="@+id/date_value"
+                android:id="@+id/date_value2"
                 android:paddingLeft="4sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -39,58 +39,96 @@
                 android:textColor="#943938"/>
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/login_btn"
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Your feedback matters"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_gravity="center_horizontal" />
+
+
+        <EditText
+            android:id="@+id/customer_info"
+            android:layout_width="300dp"
+            android:layout_height="180dp"
+            android:hint="Please enter your feedback here"
+            android:paddingLeft="20dp"
+            android:maxLength="300"
+            android:gravity="start"
+            android:padding="10dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rectangle_388"
+            android:textSize="12sp"
+            android:fontFamily="@font/montserrat"
+            />
+
+        <Button
+            android:id="@+id/btnss"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/loginhere" />
+            android:layout_marginTop="10dp"
+            android:text="Submit your feedback"
+            android:textColor="#FFFF"
+            android:textSize="15dp"
+            android:textAllCaps="false"
+            android:background="@drawable/rectangle_389"
+            android:layout_gravity="center_horizontal"/>
 
-        <GridLayout
-            android:id="@+id/grid"
-            android:layout_width="260dp"
-            android:layout_height="260dp"
-            android:columnCount="2"
-            android:rowCount="2"
-            android:layout_marginBottom="10dp">
+        <!--<ImageView-->
+            <!--android:id="@+id/login_btn"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:background="@drawable/loginhere" />-->
 
-            <ImageView
-                android:layout_height="130dp"
-                android:layout_width="130dp"
-                android:layout_row="0"
-                android:layout_column="0"
-                app:srcCompat="@drawable/propertiesicon" />
+        <!--<GridLayout-->
+            <!--android:id="@+id/grid"-->
+            <!--android:layout_width="260dp"-->
+            <!--android:layout_height="260dp"-->
+            <!--android:columnCount="2"-->
+            <!--android:rowCount="2"-->
+            <!--android:layout_marginBottom="10dp">-->
 
-            <ImageView
-                android:layout_height="130dp"
-                android:layout_width="130dp"
-                android:layout_row="0"
-                android:layout_column="1"
-                app:srcCompat="@drawable/maintenanceicon" />
+            <!--<ImageView-->
+                <!--android:layout_height="130dp"-->
+                <!--android:layout_width="130dp"-->
+                <!--android:layout_row="0"-->
+                <!--android:layout_column="0"-->
+                <!--app:srcCompat="@drawable/propertiesicon" />-->
 
-            <ImageView
-                android:id="@+id/feedback_image2"
-                android:layout_height="130dp"
-                android:layout_width="130dp"
-                android:layout_row="1"
-                android:layout_column="0"
-                app:srcCompat="@drawable/feedbackicon" />
+            <!--<ImageView-->
+                <!--android:layout_height="130dp"-->
+                <!--android:layout_width="130dp"-->
+                <!--android:layout_row="0"-->
+                <!--android:layout_column="1"-->
+                <!--app:srcCompat="@drawable/maintenanceicon" />-->
 
-            <ImageView
-                android:layout_height="130dp"
-                android:layout_width="130dp"
-                android:layout_row="1"
-                android:layout_column="1"
-                app:srcCompat="@drawable/contactusicon" />
-        </GridLayout>
+            <!--<ImageView-->
+                <!--android:layout_height="130dp"-->
+                <!--android:layout_width="130dp"-->
+                <!--android:layout_row="1"-->
+                <!--android:layout_column="0"-->
+                <!--app:srcCompat="@drawable/feedbackicon" />-->
+
+            <!--<ImageView-->
+                <!--android:layout_height="130dp"-->
+                <!--android:layout_width="130dp"-->
+                <!--android:layout_row="1"-->
+                <!--android:layout_column="1"-->
+                <!--app:srcCompat="@drawable/contactusicon" />-->
+        <!--</GridLayout>-->
 
 
         <GridLayout
             android:id="@+id/grid2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+android:layout_marginTop="20dp"
 
-            android:layout_marginBottom="50dp"
             android:rowCount="1"
             android:columnCount="4"
 
@@ -170,5 +208,5 @@
             android:padding="2dp"/>
     </LinearLayout>
 
-<!--</RelativeLayout>-->
+    <!--</RelativeLayout>-->
 </RelativeLayout>

@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.text.ParseException;
@@ -24,6 +25,7 @@ import java.util.Date;
 public class LoginActivity extends AppCompatActivity {
     Date parsed = null;
     TextView forgot_password;
+    Button login_btn;
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,8 @@ public class LoginActivity extends AppCompatActivity {
         forgot_password = findViewById(R.id.forgot_password);
 //        date_value = findViewById(R.id.date_value);
 
+
+        login_btn = findViewById(R.id.login_btn);
 
 
 //        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -49,6 +53,18 @@ public class LoginActivity extends AppCompatActivity {
 //            e.printStackTrace();
 //        }
 // => This time is in the user phone timezone, you will maybe need to turn it in UTC!
+
+
+
+        login_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(LoginActivity.this , Home_Screen.class));
+                finish();
+            }
+        });
+
 
 
 
