@@ -56,7 +56,7 @@ ImageView feedback_image;
             public void onClick(View v) {
 
                 startActivity(new Intent(Home_Screen.this , FeedbackActivity.class));
-                finish();
+//                finish();
             }
         });
         String weekday_name2 = new SimpleDateFormat("EEEE", Locale.ENGLISH).format(System.currentTimeMillis());  //Fruday

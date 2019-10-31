@@ -4,6 +4,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.icu.text.SimpleDateFormat;
 import android.icu.util.TimeZone;
@@ -11,8 +12,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
+import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.ParseException;
 import java.util.Date;
@@ -22,6 +26,7 @@ public class FeedbackActivity extends AppCompatActivity {
     String  result;
     Date parsed;
     TextView date_value;
+    Button btnss;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -32,6 +37,18 @@ public class FeedbackActivity extends AppCompatActivity {
 
 
         getWindow().setStatusBarColor(Color.TRANSPARENT);
+
+        btnss = findViewById(R.id.btnss);
+
+
+        btnss.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(FeedbackActivity.this , SuccessActivity.class));
+                finish();
+            }
+        });
 //// clear FLAG_TRANSLUCENT_STATUS flag:
 //
 //
@@ -102,5 +119,13 @@ public class FeedbackActivity extends AppCompatActivity {
             imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
         }
         return super.dispatchTouchEvent(ev);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+
     }
 }

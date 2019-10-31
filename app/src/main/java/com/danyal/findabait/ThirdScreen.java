@@ -12,6 +12,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,9 +27,12 @@ import java.util.Locale;
 public class ThirdScreen extends AppCompatActivity {
     Date parsed;
 
-    ImageView btn_started,feedback_image2;
+    ImageView btn_started,feedback_image2    , sss;
    TextView date_value;
+   ImageView contact_us;
 String  result;
+
+
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -41,6 +45,8 @@ String  result;
         btn_started = (ImageView) findViewById(R.id.login_btn);
         date_value = findViewById(R.id.date_value);
         feedback_image2 = findViewById(R.id.feedback_image2);
+        contact_us = findViewById(R.id.contact_us);
+        sss = findViewById(R.id.sss);
 
 
 //        SystemBarTintManager tintManager = new SystemBarTintManager(this);
@@ -48,11 +54,34 @@ String  result;
 //
 //
 
+
+        sss.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(ThirdScreen.this , Submit_Request.class));
+//                finish();
+            }
+        });
+
+
+
+
+        contact_us.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(ThirdScreen.this , MapActivity.class));
+//                finish();
+            }
+        });
+
+
         feedback_image2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                         startActivity(new Intent(ThirdScreen.this , FeedbackActivity.class));
-        finish();
+//        finish();
             }
         });
 
@@ -150,9 +179,16 @@ date_value.setText("  "+weekday_name +", " +  datesssss +", " +  ""+result +" " 
             public void onClick(View v) {
 
                 startActivity(new Intent(ThirdScreen.this , LoginActivity.class));
-                finish();
+//                finish();
 
             }
         });
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
     }
 }

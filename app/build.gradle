@@ -27,5 +27,12 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.mikhaellopez:circularimageview:4.0.2'
+    implementation 'io.nlopez.smartlocation:library:3.3.3'
+    implementation 'pub.devrel:easypermissions:0.3.0'
+
+    implementation project(':android-date-picker')
+    implementation 'com.google.android.gms:play-services-maps:16.1.0'
+    implementation 'com.google.android.gms:play-services-location:16.0.0'
+
     implementation 'com.jaeger.statusbarutil:library:1.4.0'
 }

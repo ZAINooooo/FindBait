@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,5 +22,11 @@ public class MainActivity extends AppCompatActivity {
 //        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
+    }
+
+
+    @Override
+    public void onBackPressed() {
+      super.onBackPressed();
     }
 }

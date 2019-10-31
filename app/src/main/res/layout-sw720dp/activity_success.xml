@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg1"
+    tools:context=".SuccessActivity">
+
+
+
+    <LinearLayout
+        android:id="@+id/back_pressed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="2dp"
+            android:src="@mipmap/back_arrow2"/>
+        <TextView
+            android:id="@+id/date_value"
+            android:textSize="28dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:text="back"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textColor="#000000"/>
+    </LinearLayout>
+
+
+
+    <ImageView
+        android:id="@+id/success"
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        android:src="@mipmap/checked"
+
+        android:layout_marginTop="220dp"
+        android:layout_centerHorizontal="true"
+        />
+
+
+    <ImageView
+        android:id="@+id/date_value2"
+        android:paddingLeft="4sp"
+        android:layout_below="@id/success"
+        android:layout_centerHorizontal="true"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="10dp"
+        android:src="@mipmap/success"
+        />
+
+    <TextView
+        android:id="@+id/sq"
+        android:layout_below="@id/date_value2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:textColor="#000000"
+        android:textSize="30dp"        android:fontFamily="@font/montserrat"
+        android:text="              Your request has been sent.
+\nPlease check your request for more info."/>
+
+
+
+    <ImageView
+        android:id="@+id/date_value3"
+        android:layout_below="@id/sq"
+        android:layout_centerHorizontal="true"
+        android:layout_width="400dp"
+        android:layout_height="100dp"
+        android:src="@mipmap/checks"
+
+        />
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"
+
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/home"
+            android:layout_weight="1"
+            android:padding="2dp"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/rateus"
+            android:layout_weight="1"
+            android:padding="2dp"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/aboutus"
+            android:layout_weight="1"
+            android:padding="2dp"/>
+    </LinearLayout>
+
+</RelativeLayout>

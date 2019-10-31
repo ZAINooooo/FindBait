@@ -9,6 +9,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ForgotPassword extends AppCompatActivity {
 
@@ -26,7 +27,7 @@ public class ForgotPassword extends AppCompatActivity {
             public void onClick(View v) {
 
                 startActivity(new Intent(ForgotPassword.this , LoginActivity.class));
-                finish();
+//                finish();
             }
         });
 
@@ -46,5 +47,13 @@ public class ForgotPassword extends AppCompatActivity {
             imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
         }
         return super.dispatchTouchEvent(ev);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+
     }
 }

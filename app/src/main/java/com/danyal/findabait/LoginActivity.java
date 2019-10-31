@@ -18,6 +18,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.ParseException;
 import java.util.Date;
@@ -61,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 startActivity(new Intent(LoginActivity.this , Home_Screen.class));
-                finish();
+//                finish();
             }
         });
 
@@ -75,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
                 startActivity(new Intent(LoginActivity.this , ForgotPassword.class));
-                finish();
+//                finish();
             }
         });
 //        SystemBarTintManager tintManager = new SystemBarTintManager(this);
@@ -105,6 +106,13 @@ public class LoginActivity extends AppCompatActivity {
         return super.dispatchTouchEvent(ev);
     }
 
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+
+    }
 
 
 }

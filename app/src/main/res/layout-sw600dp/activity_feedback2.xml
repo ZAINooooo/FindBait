@@ -51,7 +51,7 @@
             android:layout_gravity="start"
             android:layout_marginLeft="120dp"
             android:textStyle="bold"
-            android:textSize="20dp"
+            android:textSize="18dp"
             />
 
 
@@ -67,7 +67,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp"
             android:background="@drawable/rectangle_388"
-            android:textSize="15sp"
+            android:textSize="18dp"
             android:fontFamily="@font/montserrat"
             />
 
@@ -78,7 +78,7 @@
             android:layout_marginTop="10dp"
             android:text="Submit your feedback"
             android:textColor="#FFFF"
-            android:textSize="20dp"
+            android:textSize="18dp"
             android:textAllCaps="false"
             android:background="@drawable/rectangle_389"
             android:layout_gravity="center_horizontal"/>
@@ -133,7 +133,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:rowCount="1"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="90dp"
             android:columnCount="4"
 
             >
