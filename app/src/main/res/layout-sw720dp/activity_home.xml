@@ -42,6 +42,7 @@
         </LinearLayout>
 
         <ImageView
+            android:id="@+id/image_show"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginTop="15dp"
@@ -49,15 +50,35 @@
             android:src="@drawable/group_70"
             android:layout_gravity="center_horizontal"/>
 
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
         <TextView
-            android:layout_width="200dp"
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hi, Muhammad"
+            android:text="Hi, "
             android:textSize="20dp"
             android:textStyle="bold"
             android:fontFamily="@font/montserrat"
             android:gravity="center_horizontal"
             />
+
+        <TextView
+            android:id="@+id/name2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/name"
+            android:text="Muhammad "
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/montserrat"
+
+            />
+        </RelativeLayout>
 
         <GridLayout
             android:id="@+id/grid"
@@ -173,6 +194,7 @@
 
         >
         <ImageView
+            android:id="@+id/homess"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@drawable/home"
@@ -185,6 +207,7 @@
             android:layout_weight="1"
             android:padding="2dp"/>
         <ImageView
+            android:id="@+id/about_us"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@drawable/aboutus"

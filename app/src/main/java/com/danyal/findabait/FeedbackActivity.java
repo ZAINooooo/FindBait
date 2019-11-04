@@ -1,10 +1,12 @@
 package com.danyal.findabait;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.icu.text.SimpleDateFormat;
 import android.icu.util.TimeZone;
@@ -15,38 +17,118 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
+import com.mikepenz.iconics.IconicsDrawable;
+import com.mikepenz.material_design_iconic_typeface_library.MaterialDesignIconic;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.Locale;
 
-public class FeedbackActivity extends AppCompatActivity {
+import cn.pedant.SweetAlert.SweetAlertDialog;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.RequestBody;
+
+import static com.danyal.findabait.LoginActivity.value2;
+
+public class FeedbackActivity extends BaseActivity {
     String  result;
     Date parsed;
     TextView date_value;
     Button btnss;
+    ImageView home_Feedback,about_us_Feedback;
+    SharedPreferences sharedPreferences;
+    boolean isLogin;
+    JSONObject json;
+    String value3;
+    MaterialStyledDialog.Builder dialogHeader_3;
+
+    EditText customer_info;
+int tanent , realestate;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feedback2);
+        sharedPreferences = getSharedPreferences("DATA", MODE_PRIVATE);
+        isLogin = sharedPreferences.getBoolean("isLogin", false);
+
+
+
+        tanent = sharedPreferences.getInt("tenantIds", 0);
+        realestate = sharedPreferences.getInt("realStateIds", 0);
+
+
+
 
 
 
         getWindow().setStatusBarColor(Color.TRANSPARENT);
 
+
+
+        customer_info = findViewById(R.id.customer_info);
+
+        about_us_Feedback = findViewById(R.id.about_us);
+        home_Feedback = findViewById(R.id.homess);
+
+
+
         btnss = findViewById(R.id.btnss);
 
+
+
+        home_Feedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (!isLogin) //if login is false
+                {
+                    startActivity(new Intent(FeedbackActivity.this , ThirdScreen.class));
+                    finish();
+                }
+
+                else
+                {
+                    startActivity(new Intent(FeedbackActivity.this, Home_Screen.class));
+                    finish();
+                }
+
+
+            }
+        });
+
+        about_us_Feedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(FeedbackActivity.this , AboutUsActivity.class));
+                finish();
+            }
+        });
 
         btnss.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(FeedbackActivity.this , SuccessActivity.class));
-                finish();
+                submitfeedback();
+
+
             }
         });
 //// clear FLAG_TRANSLUCENT_STATUS flag:
@@ -109,6 +191,145 @@ public class FeedbackActivity extends AppCompatActivity {
         date_value.setText("  "+weekday_name +", " +  datesssss +", " +  ""+result +" " +  weekday_names);
 
 
+    }
+
+    private void submitfeedback()
+    {
+        pDialog = Utilss.showSweetLoader(FeedbackActivity.this, SweetAlertDialog.PROGRESS_TYPE, "Submitting...");
+
+String info = customer_info.getText().toString();
+
+
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("TenantId", tanent);
+            jsonObject.put("RealStateId", realestate);
+            jsonObject.put("Feedback", info);
+
+
+            Log.d("HHHHH" , "            "      +   tanent  +  "       "    +     realestate+     "              " +         info   );
+
+            OkHttpClient client = new OkHttpClient();
+            MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+            // put your json here
+            RequestBody body = RequestBody.create(JSON, jsonObject.toString());
+            okhttp3.Request request = new okhttp3.Request.Builder() .url("http://api.bms.dwtdemo.com/api/v1/feedback").post(body)
+                    .addHeader("Content-Type", "application/json")
+                    .addHeader("Authorization", "Bearer "+value2).build();
+
+
+            Call call = client.newCall(request);
+            call.enqueue(new Callback() {
+                @Override
+                public void onFailure(final Call call, final IOException e) {
+
+
+
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Utilss.hideSweetLoader(pDialog);
+
+                            Log.e("HttpService", "onFailure() Request was: " + call);
+                            e.printStackTrace();
+                        }
+                    });
+
+                    Toast.makeText(FeedbackActivity.this, "Error in retreival", Toast.LENGTH_SHORT).show();
+
+
+
+                }
+
+                @Override
+                public void onResponse(Call call, okhttp3.Response response) throws IOException {
+
+
+
+                    String responses = response.body().string();
+                    Log.e("response", "onResponse(): " + responses);
+
+                    try {
+
+                        if (response.code() == 200)
+                        {
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Utilss.hideSweetLoader(pDialog);
+                                }
+                            });
+
+                            json = new JSONObject(responses);
+                            value3 = json.getString("message");
+
+
+
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+
+                                    dialogHeader_3 = new MaterialStyledDialog.Builder(FeedbackActivity.this)
+                                            .setHeaderDrawable(R.drawable.header)
+                                            .setIcon(new IconicsDrawable(FeedbackActivity.this).icon(MaterialDesignIconic.Icon.gmi_github).color(Color.WHITE))
+                                            .withDialogAnimation(true)
+                                            .setTitle("Confirmation Message")
+                                            .setDescription(value3)
+                                            .setPositiveText("OK")
+                                            .onPositive(new MaterialDialog.SingleButtonCallback() {
+                                                @Override
+                                                public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+//
+//                                                    startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
+
+                                                }
+                                            });
+                                    dialogHeader_3.show();
+                                }
+                            });
+
+
+
+
+
+                        }
+
+
+                    }
+
+                    catch (JSONException e)
+                    {
+
+                    }
+
+
+
+
+
+
+                }
+            });
+
+
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+
+
+
+
+
+
+
+
+
+//        startActivity(new Intent(FeedbackActivity.this , SuccessActivity.class));
+//        finish();
     }
 
 

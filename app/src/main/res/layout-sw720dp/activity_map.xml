@@ -202,6 +202,7 @@
 
         >
         <ImageView
+            android:id="@+id/homess"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@drawable/home"
@@ -214,12 +215,12 @@
             android:layout_weight="1"
             android:padding="2dp"/>
         <ImageView
+            android:id="@+id/about_us"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@drawable/aboutus"
             android:layout_weight="1"
             android:padding="2dp"/>
     </LinearLayout>
-
     <!--</RelativeLayout>-->
 </RelativeLayout>

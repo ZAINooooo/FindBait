@@ -1,9 +1,404 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg1"
     tools:context=".Submit_Request">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical" >
+
+
+
+        <ScrollView
+            android:id="@+id/scrollView1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+
+
+            <RelativeLayout
+                android:id="@+id/back_pressed"
+                android:layout_width="match_parent"
+                android:layout_height="1300dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="5dp"
+                    android:src="@mipmap/back_arrow2"/>
+
+                <TextView
+                    android:id="@+id/date_value"
+                    android:textSize="28dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:text="back"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginBottom="10dp"
+                    android:textStyle="bold"
+                    android:textColor="#000000"/>
+
+
+
+                <TextView
+                    android:id="@+id/date_value2"
+                    android:textSize="25dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_below="@id/date_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Please fill the below in details:"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="#000000"/>
+
+
+                <RelativeLayout
+                    android:id="@+id/relative"
+                    android:layout_width="500dp"
+                    android:layout_height="160dp"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical"
+                    android:layout_below="@id/date_value2"
+                    android:layout_marginLeft="30dp"
+                    android:alpha=".75"
+                    android:background="@mipmap/gt">
+
+
+                    <ImageView
+                        android:id="@+id/image"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="35dp"
+                        android:src="@mipmap/youtube"/>
+                    <TextView
+                        android:id="@+id/date_value22"
+                        android:textSize="22dp"
+                        android:layout_toRightOf="@id/image"
+                        android:layout_width="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
+                        android:layout_marginTop="50dp"
+                        android:text="Air Conditioning Maintenance Request Form"
+                        android:textColor="#000000"/>
+
+
+                </RelativeLayout>
+
+
+                <TextView
+                    android:id="@+id/date_value23"
+                    android:textSize="25dp"
+                    android:layout_below="@id/relative"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Select Flat #"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="90dp"
+                    android:textColor="#000000"/>
+
+
+                <Spinner
+                    android:id="@+id/spLeaveSubject2"
+                    android:layout_width="540dp"
+                    android:layout_below="@id/date_value23"
+                    android:layout_marginTop="5dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@mipmap/groupss" />
+
+
+                <TextView
+                    android:id="@+id/date_value24"
+                    android:textSize="25dp"
+                    android:layout_below="@id/spLeaveSubject2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/montserrat"
+                    android:text="Select Date:"
+                    android:layout_marginLeft="90dp"
+                    android:textColor="#000000"/>
+
+
+                <EditText
+                    android:id="@+id/editss"
+                    android:layout_width="540dp"
+                    android:layout_below="@id/date_value24"
+                    android:background="@mipmap/date"
+                    android:layout_marginLeft="10dp"
+                    android:paddingLeft="50dp"
+                    android:textSize="25dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_height="100dp" />
+
+
+
+
+                <TextView
+                    android:id="@+id/date_value25"
+                    android:textSize="25dp"
+                    android:layout_below="@id/editss"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Select Time:"
+                    android:layout_marginLeft="90dp"
+                    android:textColor="#000000"/>
+
+
+
+
+                <EditText
+                    android:id="@+id/editss4"
+                    android:layout_width="542dp"
+                    android:layout_below="@id/date_value25"
+                    android:background="@mipmap/time"
+                    android:layout_marginTop="5dp"
+                    android:paddingLeft="50dp"
+                    android:layout_marginLeft="10dp"
+
+                    android:textSize="25dp"
+                    android:layout_height="100dp" />
+
+
+
+                <EditText
+                    android:id="@+id/editss5"
+                    android:layout_width="542dp"
+                    android:layout_below="@id/editss4"
+                    android:background="@mipmap/vs"
+                    android:paddingLeft="30dp"
+
+                    android:layout_marginLeft="10dp"
+                    android:hint="Enter details here.."
+                    android:textSize="20dp"
+                    android:paddingBottom="70dp"
+                    android:layout_height="150dp" />
+
+
+
+
+                <!--<ImageView-->
+                <!--android:id="@+id/image2"-->
+                <!--android:layout_width="300dp"-->
+                <!--android:layout_height="250dp"-->
+                <!--android:layout_below="@id/editss4"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:layout_marginLeft="25dp"-->
+                <!--android:scaleType="fitXY"-->
+                <!--android:src="@mipmap/mkk"/>-->
+
+
+                <ImageView
+                    android:id="@+id/image2"
+                    android:layout_width="505dp"
+                    android:layout_height="230dp"
+                    android:layout_below="@id/editss5"
+                    android:scaleType="fitXY"
+                    android:layout_marginLeft="30dp"
+                    android:src="@mipmap/vf"/>
+
+                <ImageView
+                    android:id="@+id/image3"
+                    android:layout_below="@id/image2"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="600dp"
+                    android:layout_height="100dp"
+                    android:src="@mipmap/gv"
+
+                    />
+
+                <!--<DatePicker-->
+                <!--android:id="@+id/datePicker1"-->
+                <!--android:layout_below="@id/date_value24"-->
+                <!--android:layout_width="300dp"-->
+                <!--android:layout_height="350dp"-->
+                <!--android:scaleY="0.90"-->
+                <!--android:scaleX="0.90"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:datePickerMode="calendar"/>-->
+
+
+
+
+
+
+            </RelativeLayout>
+
+
+
+        </ScrollView>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"
+
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/home"
+            android:layout_weight="1"
+            android:padding="2dp"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/rateus"
+            android:layout_weight="1"
+            android:padding="2dp"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/aboutus"
+            android:layout_weight="1"
+            android:padding="2dp"/>
+    </LinearLayout>
+
+
+
+    <!--<ScrollView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
+
+
+
+
+
+
+    <!--</ScrollView>-->
+
+
+
+
+    <!--<LinearLayout-->
+    <!--android:orientation="horizontal"-->
+    <!--android:id="@+id/bottom_navigation"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:background="#FFFFFF"-->
+
+    <!--&gt;-->
+    <!--<ImageView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:src="@drawable/home"-->
+    <!--android:layout_weight="1"-->
+    <!--android:padding="2dp"/>-->
+    <!--<ImageView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:src="@drawable/rateus"-->
+    <!--android:layout_weight="1"-->
+    <!--android:padding="2dp"/>-->
+    <!--<ImageView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:src="@drawable/aboutus"-->
+    <!--android:layout_weight="1"-->
+    <!--android:padding="2dp"/>-->
+    <!--</LinearLayout>-->
+
+
+</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+    <!--<DatePicker-->
+    <!--android:id="@+id/datePicker"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="300dp"-->
+    <!--android:scaleX=".9"-->
+    <!--android:calendarViewShown="false"-->
+    <!--android:scaleY=".9"-->
+    <!--android:layout_marginBottom="10dp"-->
+    <!--android:layout_below="@id/date_value24"-->
+    <!--android:layout_centerHorizontal="true" />-->
+
+
+    <!--<TextView-->
+    <!--android:id="@+id/date_value25"-->
+    <!--android:textSize="13dp"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:fontFamily="@font/montserrat"-->
+    <!--android:text="Select Date"-->
+    <!--android:layout_marginLeft="30dp"-->
+    <!--android:textColor="#000000"/>-->
+
+
+
+    <!--<RelativeLayout-->
+    <!--android:orientation="horizontal"-->
+    <!--android:id="@+id/bottom_navigation"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:background="#FFFFFF"-->
+
+    <!--&gt;-->
+    <!--<ImageView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:src="@drawable/home"-->
+    <!--android:layout_weight="1"-->
+    <!--android:padding="2dp"/>-->
+    <!--<ImageView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:src="@drawable/rateus"-->
+    <!--android:layout_weight="1"-->
+    <!--android:padding="2dp"/>-->
+    <!--<ImageView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:src="@drawable/aboutus"-->
+    <!--android:layout_weight="1"-->
+    <!--android:padding="2dp"/>-->
+    <!--</RelativeLayout>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+

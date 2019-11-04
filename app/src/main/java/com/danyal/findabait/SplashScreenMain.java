@@ -2,6 +2,7 @@ package com.danyal.findabait;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -21,6 +22,11 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationRequest;
 
 public class SplashScreenMain extends AppCompatActivity  {
+
+
+    SharedPreferences sharedPreferences;
+    boolean isLogin;
+
 
     ImageView btn_started;
 //    public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
@@ -46,6 +52,11 @@ public class SplashScreenMain extends AppCompatActivity  {
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
+
+        sharedPreferences = getSharedPreferences("DATA", MODE_PRIVATE);
+        isLogin = sharedPreferences.getBoolean("isLogin", false);
+
+
 //// finally change the color
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
 //        {
@@ -53,6 +64,9 @@ public class SplashScreenMain extends AppCompatActivity  {
 //        }
 
 
+        if (!isLogin) //if login is false
+
+        {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -61,6 +75,23 @@ public class SplashScreenMain extends AppCompatActivity  {
                     finish();
                 }
             }, 1000);
+        }
+
+        else
+        {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    final Intent mainIntent = new Intent(SplashScreenMain.this, Home_Screen.class);
+                    startActivity(mainIntent);
+                    finish();
+                }
+            }, 1000);
+
+        }
+
+
+
 
 
 

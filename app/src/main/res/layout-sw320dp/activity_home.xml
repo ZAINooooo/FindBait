@@ -13,10 +13,22 @@
         android:orientation="vertical"
         android:gravity="center">
 
+
+        <TextView
+            android:id="@+id/logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="logout"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:textColor="#000000"
+            android:gravity="right"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp"/>
+
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="135dp"
-            android:layout_marginTop="40dp"
             android:layout_height="128dp"
             app:srcCompat="@drawable/logobordered" />
 
@@ -40,6 +52,7 @@
         </LinearLayout>
 
         <ImageView
+            android:id="@+id/image_show"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginTop="15dp"
@@ -47,13 +60,43 @@
             android:src="@drawable/group_70"
             android:layout_gravity="center_horizontal"/>
 
-        <TextView
+
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hi, Muhammad"
-            android:textStyle="bold"
-            android:layout_gravity="center_horizontal"
-            />
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hi, "
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/montserrat"
+                android:gravity="center_horizontal"
+                />
+
+            <TextView
+                android:id="@+id/name2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/name"
+                android:text="Muhammad "
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/montserrat"
+
+                />
+        </RelativeLayout>
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Hi, Muhammad"-->
+            <!--android:textStyle="bold"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--/>-->
 
         <GridLayout
             android:id="@+id/grid"
@@ -86,6 +129,7 @@
                 app:srcCompat="@drawable/feedbackicon" />
 
             <ImageView
+                android:id="@+id/contact_us"
                 android:layout_height="130dp"
                 android:layout_width="130dp"
                 android:layout_row="1"
@@ -160,24 +204,31 @@
 
         >
         <ImageView
+            android:id="@+id/homess"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:paddingTop="4dp"
             android:src="@drawable/home"
+            android:layout_marginLeft="0dp"
             android:layout_weight="1"
-            android:padding="2dp"/>
+            />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:paddingTop="4dp"
+            android:layout_marginLeft="16dp"
             android:src="@drawable/rateus"
             android:layout_weight="1"
-            android:padding="2dp"/>
+            />
         <ImageView
+            android:id="@+id/about_us"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:paddingTop="4dp"
+            android:layout_marginRight="0dp"
             android:src="@drawable/aboutus"
             android:layout_weight="1"
-            android:padding="2dp"/>
+            />
     </LinearLayout>
-
     <!--</RelativeLayout>-->
 </RelativeLayout>

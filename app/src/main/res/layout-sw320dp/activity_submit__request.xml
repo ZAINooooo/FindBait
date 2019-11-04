@@ -1,157 +1,259 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:background="@drawable/bg1"
-    tools:context=".Submit_Request">
+    android:orientation="vertical" >
 
-
-
-
-
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <RelativeLayout
-        android:id="@+id/back_pressed"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal">
-
-    <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="10dp"
-        android:src="@mipmap/back_arrow2"/>
-
-    <TextView
-        android:id="@+id/date_value"
-        android:textSize="18dp"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat"
-        android:text="back"
-        android:layout_marginTop="12dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginBottom="10dp"
-        android:textStyle="bold"
-        android:textColor="#000000"/>
+
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical" >
 
 
 
-        <TextView
-            android:id="@+id/date_value2"
-            android:textSize="15dp"
-            android:layout_marginTop="5dp"
-            android:layout_below="@id/date_value"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat"
-            android:text="Please fill the below in details:"
-            android:layout_marginLeft="15dp"
-            android:textColor="#000000"/>
+        <ScrollView
+            android:id="@+id/scrollView1"
+            android:layout_width="match_parent"
+            android:scrollbars="none"
+            android:layout_height="match_parent" >
 
 
-        <RelativeLayout
-            android:id="@+id/relative"
-            android:layout_width="330dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_below="@id/date_value2"
-            android:layout_marginLeft="30dp"
-            android:paddingEnd="5dp"
+            <RelativeLayout
+                android:id="@+id/back_pressed"
+                android:layout_width="match_parent"
+                android:layout_height="750dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
 
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@mipmap/back_arrow2"/>
 
-android:layout_centerHorizontal="true"
-            android:background="@mipmap/submit_editext">
-
-
-            <ImageView
-                android:id="@+id/image"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="18dp"
-                android:src="@mipmap/youtube"/>
-            <TextView
-                android:id="@+id/date_value22"
-                android:textSize="14dp"
-                android:layout_toRightOf="@id/image"
-                android:layout_width="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat"
-                android:layout_marginTop="30dp"
-                android:text="Air Conditioning Maintenance Request Form"
-                android:textColor="#000000"/>
-
-
-        </RelativeLayout>
-
-
-        <TextView
-            android:id="@+id/date_value23"
-            android:textSize="15dp"
-            android:layout_below="@id/relative"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat"
-            android:text="Select Flat #"
-            android:layout_marginLeft="50dp"
-            android:textColor="#000000"/>
-
-
-        <Spinner
-            android:id="@+id/spLeaveSubject2"
-            android:layout_width="332dp"
-            android:layout_below="@id/date_value23"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="-5dp"
-            android:layout_height="75.0dip"
-            android:background="@mipmap/spinner" />
-
-
-        <TextView
-            android:id="@+id/date_value24"
-            android:textSize="15dp"
-            android:layout_below="@id/spLeaveSubject2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat"
-            android:text="Select Date:"
-            android:layout_marginLeft="50dp"
-            android:textColor="#000000"/>
-
-
-        <EditText
-            android:layout_width="315dp"
-            android:layout_below="@id/date_value24"
-            android:background="@mipmap/fs"
-            android:layout_marginTop="5dp"
-            android:layout_centerHorizontal="true"
-            android:layout_height="wrap_content" />
-
-        <!--<DatePicker-->
-            <!--android:id="@+id/datePicker1"-->
-            <!--android:layout_below="@id/date_value24"-->
-            <!--android:layout_width="300dp"-->
-            <!--android:layout_height="350dp"-->
-            <!--android:scaleY="0.90"-->
-            <!--android:scaleX="0.90"-->
-            <!--android:layout_centerHorizontal="true"-->
-            <!--android:datePickerMode="calendar"/>-->
+                <TextView
+                    android:id="@+id/date_value"
+                    android:textSize="18dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:text="back"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginBottom="10dp"
+                    android:textStyle="bold"
+                    android:textColor="#000000"/>
 
 
 
+                <TextView
+                    android:id="@+id/date_value2"
+                    android:textSize="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@id/date_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Please fill the below in details:"
+                    android:layout_marginLeft="15dp"
+                    android:textColor="#000000"/>
+
+
+                <RelativeLayout
+                    android:id="@+id/relative"
+                    android:layout_width="327dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical"
+                    android:layout_below="@id/date_value2"
+                    android:layout_marginLeft="14dp"
+                    android:alpha=".75"
+                    android:background="@mipmap/groups">
+
+
+                    <ImageView
+                        android:id="@+id/image"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="18dp"
+                        android:src="@mipmap/youtube"/>
+                    <TextView
+                        android:id="@+id/date_value22"
+                        android:textSize="14dp"
+                        android:layout_toRightOf="@id/image"
+                        android:layout_width="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
+                        android:layout_marginTop="30dp"
+                        android:text="Air Conditioning Maintenance Request Form"
+                        android:textColor="#000000"/>
+
+
+                </RelativeLayout>
+
+
+                <TextView
+                    android:id="@+id/date_value23"
+                    android:textSize="15dp"
+                    android:layout_below="@id/relative"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Select Flat #"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="30dp"
+                    android:textColor="#000000"/>
+
+
+                <Spinner
+                    android:id="@+id/spLeaveSubject2"
+                    android:layout_width="329dp"
+                    android:layout_below="@id/date_value23"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/groupss" />
+
+
+                <TextView
+                    android:id="@+id/date_value24"
+                    android:textSize="15dp"
+                    android:layout_below="@id/spLeaveSubject2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/montserrat"
+                    android:text="Select Date:"
+                    android:layout_marginLeft="30dp"
+                    android:textColor="#000000"/>
+
+
+                <EditText
+                    android:id="@+id/editss"
+                    android:layout_width="332dp"
+                    android:layout_below="@id/date_value24"
+                    android:background="@mipmap/date"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginTop="5dp"
+                    android:paddingLeft="20dp"
+
+                    android:layout_height="wrap_content" />
 
 
 
-        </RelativeLayout>
 
+                <TextView
+                    android:id="@+id/date_value25"
+                    android:textSize="15dp"
+                    android:layout_below="@id/editss"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Select Time:"
+                    android:layout_marginLeft="30dp"
+                    android:textColor="#000000"/>
+
+
+
+
+                <EditText
+                    android:id="@+id/editss4"
+                    android:layout_width="332dp"
+                    android:layout_below="@id/date_value25"
+                    android:background="@mipmap/time"
+
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginTop="5dp"
+
+                    android:layout_height="wrap_content" />
+
+
+
+                <EditText
+                    android:id="@+id/editss5"
+                    android:layout_width="333dp"
+                    android:layout_below="@id/editss4"
+                    android:background="@mipmap/vs"
+                    android:paddingLeft="20dp"
+                    android:layout_marginLeft="15dp"
+                    android:hint="Enter details here.."
+                    android:textSize="15dp"
+                    android:paddingBottom="50dp"
+                    android:layout_height="80dp" />
+
+
+
+
+                <ImageView
+                    android:id="@+id/image2"
+                    android:layout_width="310dp"
+                    android:layout_height="100dp"
+                    android:layout_below="@id/editss5"
+                    android:scaleType="fitXY"
+                    android:background="@null"
+                    android:layout_marginLeft="27dp"
+                    android:src="@mipmap/vf"/>
+
+
+
+
+
+
+
+
+                <ImageView
+                    android:id="@+id/image3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:layout_below="@id/image2"
+
+                    android:background="@null"
+                 android:layout_centerHorizontal="true"
+                    android:src="@mipmap/gv"/>
+
+
+
+
+                <!--<ImageView-->
+                <!--android:id="@+id/image23"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_below="@id/image3"-->
+                <!--android:layout_marginTop="5dp"-->
+                <!--android:layout_marginLeft="50dp"-->
+                <!--android:src="@mipmap/gv"/>-->
+
+
+                <!--<DatePicker-->
+                <!--android:id="@+id/datePicker1"-->
+                <!--android:layout_below="@id/date_value24"-->
+                <!--android:layout_width="300dp"-->
+                <!--android:layout_height="350dp"-->
+                <!--android:scaleY="0.90"-->
+                <!--android:scaleX="0.90"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:datePickerMode="calendar"/>-->
+
+
+
+
+
+
+            </RelativeLayout>
+
+
+        </ScrollView>
+
+
+
+
+
+    </LinearLayout>
 
 
     <LinearLayout
@@ -164,101 +266,31 @@ android:layout_centerHorizontal="true"
 
         >
         <ImageView
+            android:id="@+id/homess"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:paddingTop="4dp"
             android:src="@drawable/home"
+            android:layout_marginLeft="0dp"
             android:layout_weight="1"
-            android:padding="2dp"/>
+            />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:paddingTop="4dp"
+            android:layout_marginLeft="16dp"
             android:src="@drawable/rateus"
             android:layout_weight="1"
-            android:padding="2dp"/>
+            />
         <ImageView
+            android:id="@+id/about_us"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:paddingTop="4dp"
+            android:layout_marginRight="0dp"
             android:src="@drawable/aboutus"
             android:layout_weight="1"
-            android:padding="2dp"/>
+            />
     </LinearLayout>
 
-</ScrollView>
-
-        </RelativeLayout>
-
-
-
-
-
-
-
-
-
-
-        <!--<DatePicker-->
-            <!--android:id="@+id/datePicker"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="300dp"-->
-            <!--android:scaleX=".9"-->
-            <!--android:calendarViewShown="false"-->
-            <!--android:scaleY=".9"-->
-            <!--android:layout_marginBottom="10dp"-->
-            <!--android:layout_below="@id/date_value24"-->
-            <!--android:layout_centerHorizontal="true" />-->
-
-
-        <!--<TextView-->
-            <!--android:id="@+id/date_value25"-->
-            <!--android:textSize="13dp"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:fontFamily="@font/montserrat"-->
-            <!--android:text="Select Date"-->
-            <!--android:layout_marginLeft="40dp"-->
-            <!--android:textColor="#000000"/>-->
-
-
-
-        <!--<RelativeLayout-->
-            <!--android:orientation="horizontal"-->
-            <!--android:id="@+id/bottom_navigation"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="50dp"-->
-            <!--android:layout_alignParentBottom="true"-->
-            <!--android:background="#FFFFFF"-->
-
-            <!--&gt;-->
-            <!--<ImageView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:src="@drawable/home"-->
-                <!--android:layout_weight="1"-->
-                <!--android:padding="2dp"/>-->
-            <!--<ImageView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:src="@drawable/rateus"-->
-                <!--android:layout_weight="1"-->
-                <!--android:padding="2dp"/>-->
-            <!--<ImageView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:src="@drawable/aboutus"-->
-                <!--android:layout_weight="1"-->
-                <!--android:padding="2dp"/>-->
-        <!--</RelativeLayout>-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</RelativeLayout>

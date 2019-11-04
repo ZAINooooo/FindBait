@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.danyal.findabait">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -12,18 +13,35 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".Submit_Request"></activity>
-        <activity android:name=".SuccessActivity" />
-        <activity android:name=".MapActivity" />
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:replace="android:icon">
+        <activity android:name=".ServicesList"></activity>
+        <activity
+            android:name=".TicketDetail"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"></activity>
+        <activity android:name=".AboutUsActivity" />
+        <activity
+            android:name=".Submit_Request"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SuccessActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MapActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".FeedbackActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".ForgotPassword"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".SplashScreenMain"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,15 +51,19 @@
         </activity>
         <activity
             android:name=".SplashScreen"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".ThirdScreen"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".LoginActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".Home_Screen"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
 
         <uses-library

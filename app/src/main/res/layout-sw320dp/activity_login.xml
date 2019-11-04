@@ -68,10 +68,10 @@
 
 
             <EditText
+                android:id="@+id/email"
                 android:hint="Email Address"
                 android:textStyle="bold"
                 android:textSize="15dp"
-
                 android:gravity="center"
                 android:singleLine="true"
                 android:paddingLeft="4dp"
@@ -83,6 +83,7 @@
 
 
             <EditText
+                android:id="@+id/password"
                 android:hint="Password"
                 android:paddingLeft="4dp"
                 android:paddingRight="4dp"
@@ -196,23 +197,31 @@
 
         >
         <ImageView
+            android:id="@+id/homess"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:paddingTop="4dp"
             android:src="@drawable/home"
+            android:layout_marginLeft="0dp"
             android:layout_weight="1"
-            android:padding="2dp"/>
+            />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:paddingTop="4dp"
+            android:layout_marginLeft="16dp"
             android:src="@drawable/rateus"
             android:layout_weight="1"
-            android:padding="2dp"/>
+            />
         <ImageView
+            android:id="@+id/about_us"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:paddingTop="4dp"
+            android:layout_marginRight="0dp"
             android:src="@drawable/aboutus"
             android:layout_weight="1"
-            android:padding="2dp"/>
+            />
     </LinearLayout>
 
     <!--</RelativeLayout>-->

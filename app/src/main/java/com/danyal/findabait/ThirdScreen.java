@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,11 +28,11 @@ import java.util.Locale;
 public class ThirdScreen extends AppCompatActivity {
     Date parsed;
 
-    ImageView btn_started,feedback_image2    , sss;
+    ImageView btn_started,feedback_image2    , sss ,about_us,homess;
    TextView date_value;
    ImageView contact_us;
+   LinearLayout third;
 String  result;
-
 
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -46,6 +47,31 @@ String  result;
         date_value = findViewById(R.id.date_value);
         feedback_image2 = findViewById(R.id.feedback_image2);
         contact_us = findViewById(R.id.contact_us);
+
+        third = findViewById(R.id.third);
+        third.setVisibility(View.VISIBLE);
+        about_us = findViewById(R.id.about_us);
+        homess = findViewById(R.id.homess);
+
+        homess.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+//                startActivity(new Intent(ThirdScreen.this , Submit_Request.class));
+////                finish();
+            }
+        });
+
+        about_us.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(ThirdScreen.this , AboutUsActivity.class));
+                finish();
+            }
+        });
+
+
         sss = findViewById(R.id.sss);
 
 
@@ -59,7 +85,7 @@ String  result;
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(ThirdScreen.this , Submit_Request.class));
+                startActivity(new Intent(ThirdScreen.this , TicketDetail.class));
 //                finish();
             }
         });
@@ -188,7 +214,7 @@ date_value.setText("  "+weekday_name +", " +  datesssss +", " +  ""+result +" " 
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+//        super.onBackPressed();
 
     }
 }

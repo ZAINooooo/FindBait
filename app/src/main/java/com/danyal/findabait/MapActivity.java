@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -23,6 +24,8 @@ import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -63,6 +66,10 @@ public class MapActivity extends AppCompatActivity  implements OnMapReadyCallbac
 TextView date_value;
     Date parsed;
     String  result;
+    SharedPreferences sharedPreferences;
+    boolean isLogin;
+
+    ImageView map_home,map_about_us;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -70,8 +77,50 @@ TextView date_value;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
+
+        sharedPreferences = getSharedPreferences("DATA", MODE_PRIVATE);
+        isLogin = sharedPreferences.getBoolean("isLogin", false);
+
+        map_home = findViewById(R.id.homess);
+        map_about_us = findViewById(R.id.about_us);
+
+
+
+
         date_value = findViewById(R.id.date_value);
 
+
+
+        map_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+//                startActivity(new Intent(MapActivity.this , ThirdScreen.class));
+//                finish();
+                if (!isLogin) //if login is false
+
+                {
+                    startActivity(new Intent(MapActivity.this , ThirdScreen.class));
+                    finish();
+                }
+
+                else
+                {
+                    startActivity(new Intent(MapActivity.this, Home_Screen.class));
+                    finish();
+                }
+
+            }
+        });
+
+        map_about_us.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(MapActivity.this , AboutUsActivity.class));
+                finish();
+            }
+        });
 
 
         String weekday_name = new SimpleDateFormat("EEEE", Locale.ENGLISH).format(System.currentTimeMillis());  //Fruday

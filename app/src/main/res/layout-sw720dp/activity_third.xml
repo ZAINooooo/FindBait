@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+
     tools:context=".ThirdScreen"
     android:background="@drawable/bg1">
 
@@ -12,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:id="@+id/third"
         android:gravity="center"
         >
 
@@ -59,6 +61,7 @@
             >
 
             <ImageView
+
                 android:layout_height="280dp"
                 android:layout_width="280dp"
                 android:layout_row="0"
@@ -66,6 +69,7 @@
                 app:srcCompat="@drawable/propertiesicon" />
 
             <ImageView
+                android:id="@+id/sss"
                 android:layout_height="280dp"
                 android:layout_width="280dp"
                 android:layout_row="0"
@@ -158,6 +162,7 @@ android:layout_height="60dp"
 
         >
         <ImageView
+            android:id="@+id/homess"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@drawable/home"
@@ -170,6 +175,7 @@ android:layout_height="60dp"
             android:layout_weight="1"
             android:padding="2dp"/>
         <ImageView
+            android:id="@+id/about_us"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@drawable/aboutus"
