@@ -133,15 +133,12 @@ String access_token;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_submit__request);
 
-
-
         sharedPreferences = getSharedPreferences("DATA", MODE_PRIVATE);
         isLogin = sharedPreferences.getBoolean("isLogin", false);
         access_token = sharedPreferences.getString("token", "");
 
         tanent = sharedPreferences.getInt("tenantIds", 0);
         realestate = sharedPreferences.getInt("realStateIds", 0);
-
 
         face = Typeface.createFromAsset(Submit_Request.this.getAssets(),"ptsanswebbold.ttf");
         face2 = Typeface.createFromAsset(Submit_Request.this.getAssets(),"ptsanswebregular.ttf");
@@ -181,9 +178,6 @@ String access_token;
         images = findViewById(R.id.image);
 
         Glide.with(Submit_Request.this).load(image).diskCacheStrategy( DiskCacheStrategy.ALL ).override(1080, 600).into(images);
-
-
-//        about_us_submit_Request = findViewById(R.id.about_us);
 
         spLeaveSubject2 = (Spinner) findViewById(R.id.spLeaveSubject2);
         spLeaveSubject2.setOnItemSelectedListener(Submit_Request.this);

@@ -17,7 +17,7 @@ public class SuccessActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     boolean isLogin;
 
-
+ImageView date_value3;
     ImageView home_success,abous_us_success;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +34,7 @@ public class SuccessActivity extends AppCompatActivity {
         home_success = findViewById(R.id.homess);
         abous_us_success = findViewById(R.id.about_us);
 
+        date_value3 = findViewById(R.id.date_value3);
 
 
         home_success.setOnClickListener(new View.OnClickListener() {
@@ -66,6 +67,15 @@ public class SuccessActivity extends AppCompatActivity {
             }
         });
 
+
+        date_value3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(SuccessActivity.this , TicketHistory.class));
+                finish();
+            }
+        });
 
 
         back_pressed.setOnClickListener(new View.OnClickListener() {

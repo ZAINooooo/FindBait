@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -21,14 +20,17 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:replace="android:icon">
-        <activity android:name=".ServicesList"
-            android:screenOrientation="portrait"></activity>
+        <activity android:name=".TicketHistory"></activity>
+        <activity
+            android:name=".ServicesList"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".TicketDetail"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden"></activity>
-        <activity android:name=".AboutUsActivity"
-            android:screenOrientation="portrait"/>
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".AboutUsActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Submit_Request"
             android:screenOrientation="portrait" />
@@ -73,7 +75,6 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
 
-
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.danyal.findabait.fileprovider"
@@ -84,7 +85,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
         </provider>
-
 
         <uses-library
             android:name="com.google.android.maps"
