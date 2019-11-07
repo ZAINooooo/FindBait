@@ -1,1 +1,1 @@
-include ':app',':android-date-picker'
+include ':app',':android-date-picker' , ':dialog'

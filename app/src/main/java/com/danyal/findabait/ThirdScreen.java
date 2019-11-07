@@ -1,6 +1,7 @@
 package com.danyal.findabait;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.icu.text.SimpleDateFormat;
 import android.icu.util.TimeZone;
@@ -15,11 +16,17 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
 import com.jaeger.library.StatusBarUtil;
+import com.mikepenz.iconics.IconicsDrawable;
+import com.mikepenz.material_design_iconic_typeface_library.MaterialDesignIconic;
 
 import java.text.ParseException;
 import java.util.Date;
@@ -28,11 +35,16 @@ import java.util.Locale;
 public class ThirdScreen extends AppCompatActivity {
     Date parsed;
 
-    ImageView btn_started,feedback_image2    , sss ,about_us,homess;
+    ImageView btn_started,feedback_image2    , sss ,about_us,homess    , property,maintenance;
    TextView date_value;
    ImageView contact_us;
    LinearLayout third;
 String  result;
+
+    SharedPreferences sharedPreferences;
+    boolean isLogin;
+
+    MaterialStyledDialog.Builder dialogHeader_3;
 
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -42,10 +54,15 @@ String  result;
         setContentView(R.layout.activity_third);
 
 
+        sharedPreferences = getSharedPreferences("DATA", MODE_PRIVATE);
+        isLogin = sharedPreferences.getBoolean("isLogin", false);
 
         btn_started = (ImageView) findViewById(R.id.login_btn);
         date_value = findViewById(R.id.date_value);
         feedback_image2 = findViewById(R.id.feedback_image2);
+        property = findViewById(R.id.property);
+        maintenance = findViewById(R.id.maintenance);
+
         contact_us = findViewById(R.id.contact_us);
 
         third = findViewById(R.id.third);
@@ -72,7 +89,7 @@ String  result;
         });
 
 
-        sss = findViewById(R.id.sss);
+//        sss = findViewById(R.id.sss);
 
 
 //        SystemBarTintManager tintManager = new SystemBarTintManager(this);
@@ -81,14 +98,14 @@ String  result;
 //
 
 
-        sss.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                startActivity(new Intent(ThirdScreen.this , TicketDetail.class));
-//                finish();
-            }
-        });
+//        sss.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                startActivity(new Intent(ThirdScreen.this , TicketDetail.class));
+////                finish();
+//            }
+//        });
 
 
 
@@ -106,7 +123,134 @@ String  result;
         feedback_image2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                        startActivity(new Intent(ThirdScreen.this , FeedbackActivity.class));
+
+                if (!isLogin)  //not login
+                {
+//                    dialogHeader_3 = new MaterialStyledDialog.Builder(ThirdScreen.this)
+//                            .setHeaderDrawable(R.drawable.header)
+//                            .setIcon(new IconicsDrawable(ThirdScreen.this).icon(MaterialDesignIconic.Icon.gmi_github).color(Color.WHITE))
+//                            .withDialogAnimation(true)
+//                            .setTitle("Error Message")
+//                            .setDescription("Must Login To Access")
+//                            .setPositiveText("OK")
+//                            .onPositive(new MaterialDialog.SingleButtonCallback() {
+//                                @Override
+//                                public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+////
+////                                                    startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
+//
+//                                }
+//                            });
+//                    dialogHeader_3.show();
+
+                    startActivity(new Intent(ThirdScreen.this , LoginActivity.class));
+                    finish();
+                }
+
+                else
+                {
+
+
+
+
+//                    startActivity(new Intent(ThirdScreen.this , FeedbackActivity.class));
+                }
+
+//        finish();
+            }
+        });
+
+
+
+
+
+
+        maintenance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (!isLogin)  //not login
+                {
+//                    dialogHeader_3 = new MaterialStyledDialog.Builder(ThirdScreen.this)
+//                            .setHeaderDrawable(R.drawable.header)
+//                            .setIcon(new IconicsDrawable(ThirdScreen.this).icon(MaterialDesignIconic.Icon.gmi_github).color(Color.WHITE))
+//                            .withDialogAnimation(true)
+//                            .setTitle("Error Message")
+//                            .setDescription("Must Login To Access")
+//                            .setPositiveText("OK")
+//                            .onPositive(new MaterialDialog.SingleButtonCallback() {
+//                                @Override
+//                                public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+//
+//
+//
+////
+////                                                    startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
+//
+//                                }
+//                            });
+//                    dialogHeader_3.show();
+
+                    startActivity(new Intent(ThirdScreen.this , LoginActivity.class));
+                    finish();
+                }
+
+                else
+                {
+
+
+
+
+//                    startActivity(new Intent(ThirdScreen.this , FeedbackActivity.class));
+                }
+
+//        finish();
+            }
+        });
+
+
+
+
+
+        property.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (!isLogin)  //not login
+                {
+//                    dialogHeader_3 = new MaterialStyledDialog.Builder(ThirdScreen.this)
+//                            .setHeaderDrawable(R.drawable.header)
+//                            .setIcon(new IconicsDrawable(ThirdScreen.this).icon(MaterialDesignIconic.Icon.gmi_github).color(Color.WHITE))
+//                            .withDialogAnimation(true)
+//                            .setTitle("Error Message")
+//                            .setDescription("Must Login To Access")
+//                            .setPositiveText("OK")
+//                            .onPositive(new MaterialDialog.SingleButtonCallback() {
+//                                @Override
+//                                public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+////
+////                                                    startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
+//
+//                             startActivity(new Intent(ThirdScreen.this , LoginActivity.class));
+//                             finish();
+//
+//                                }
+//                            });
+//                    dialogHeader_3.show();
+
+                    startActivity(new Intent(ThirdScreen.this , LoginActivity.class));
+                    finish();
+                }
+
+                else
+                {
+
+
+
+
+//                    startActivity(new Intent(ThirdScreen.this , FeedbackActivity.class));
+                }
+
 //        finish();
             }
         });

@@ -170,11 +170,12 @@ TextView date_value;
         Log.d("Date_is3", weekday_names);
 
         date_value.setText("  "+weekday_name +", " +  datesssss +", " +  ""+result +" " +  weekday_names);
-
-
         provider = new LocationGooglePlayServicesWithFallbackProvider(MapActivity.this);
         statusCheck();
     }
+
+
+
 
     public void statusCheck() {
         final LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -221,7 +222,7 @@ TextView date_value;
             public void onLocationUpdated(Location location) {
                 Log.e("onLocationUpdated", "onLocationUpdated: " + location);
 
-                mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 16));
+                mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 14));
                 mGoogleMap.animateCamera(CameraUpdateFactory.newLatLng(new LatLng(location.getLatitude(), location.getLongitude())));
 
 
@@ -334,6 +335,25 @@ TextView date_value;
     }
 
 
+    @Override
+    public void onBackPressed()
+    {
+
+        if (!isLogin) //if login is false
+
+        {
+            startActivity(new Intent(MapActivity.this , ThirdScreen.class));
+            finish();
+        }
+
+        else
+        {
+            startActivity(new Intent(MapActivity.this, Home_Screen.class));
+            finish();
+        }
 
 
+
+        super.onBackPressed();
+    }
 }

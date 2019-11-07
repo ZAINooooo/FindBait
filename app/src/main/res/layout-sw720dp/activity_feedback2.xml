@@ -88,7 +88,7 @@
             android:layout_height="270dp"
             android:hint="Please enter your feedback here"
             android:paddingLeft="20dp"
-            android:maxLength="300"
+            android:maxLength="1000"
             android:gravity="start"
             android:padding="10dp"
             android:layout_gravity="center_horizontal"

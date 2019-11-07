@@ -1,24 +1,20 @@
 package com.danyal.findabait;
 
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.icu.text.SimpleDateFormat;
 import android.icu.util.TimeZone;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -29,8 +25,14 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
+import com.rahman.dialog.Activity.SmartDialog;
+import com.rahman.dialog.ListenerCallBack.SmartDialogClickListener;
+import com.danyal.findabait.SmartDialogClickListener2;
 
-import org.json.JSONArray;
+import com.rahman.dialog.Utilities.SmartDialogBuilder;
+
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -41,9 +43,6 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-import cn.pedant.SweetAlert.SweetAlertDialog;
-
-import static android.R.layout.simple_spinner_item;
 import static com.danyal.findabait.LoginActivity.value2;
 
 //implements RecyclerViewAdapter.ItemListener
@@ -58,18 +57,19 @@ public class Home_Screen extends BaseActivity {
     TextView date_value1,name2;
     ImageView feedback_image;
     ImageView contact_us;
+    MaterialStyledDialog.Builder dialogHeader_3;
 
     SharedPreferences sharedPreferences;
 
-    TextView logout;
+    ImageView logout;
 
     TextView name;
-    ImageView home_home, about_us_home;
+    ImageView home_home, about_us_home, sevice_list;
     JSONObject jsonObject;
 
     String UsernameSharedPreference , PasswordeSharedPreference;
     boolean isLogin;
-
+Typeface face,face2;
 
     ImageView image_show;
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -80,6 +80,10 @@ public class Home_Screen extends BaseActivity {
         sharedPreferences = getSharedPreferences("DATA", MODE_PRIVATE);
         isLogin = sharedPreferences.getBoolean("isLogin", false);
 
+
+        face = Typeface.createFromAsset(Home_Screen.this.getAssets(),"ptsanswebbold.ttf");
+        face2 = Typeface.createFromAsset(Home_Screen.this.getAssets(),"ptsanswebregular.ttf");
+
         contact_us = findViewById(R.id.contact_us);
 
         name = findViewById(R.id.name);
@@ -88,6 +92,7 @@ public class Home_Screen extends BaseActivity {
         image_show = findViewById(R.id.image_show);
         home_home = findViewById(R.id.homess);
         about_us_home = findViewById(R.id.about_us);
+        sevice_list = findViewById(R.id.sevice_list);
 
 
         home_home.setOnClickListener(new View.OnClickListener() {
@@ -96,7 +101,6 @@ public class Home_Screen extends BaseActivity {
 
 
                 if (!isLogin) //if login is false
-
                 {
                     startActivity(new Intent(Home_Screen.this, ThirdScreen.class));
                     finish();
@@ -107,6 +111,18 @@ public class Home_Screen extends BaseActivity {
 //                    startActivity(new Intent(Home_Screen.this, ThirdScreen.class));
 //                    finish();
                 }
+            }
+        });
+
+
+
+        sevice_list.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(Home_Screen.this , ServicesList.class));
+//                finish();
+//                finish();
             }
         });
 
@@ -197,11 +213,95 @@ public class Home_Screen extends BaseActivity {
             @Override
             public void onClick(View v) {
 
-                SharedPreferences.Editor editor=sharedPreferences.edit();
-                editor.putBoolean("isLogin",false);
-                editor.apply();
 
-                finishAffinity();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+
+
+
+                        new SmartDialogBuilder2(Home_Screen.this)
+                                .setTitle("Error Message")
+                                .setSubTitle("Do You Want To Logout")
+                                .setCancalable(true)
+                                .setTitleFont(face)
+                                .setSubTitleFont(face2).setPositiveButton("OK", new SmartDialogClickListener2() {
+                                    @Override
+                                    public void onClick(SmartDialog2 smartDialog) {
+
+                                                                                SharedPreferences.Editor editor=sharedPreferences.edit();
+                                        editor.putBoolean("isLogin",false);
+                                        editor.apply();
+                                        smartDialog.dismiss();
+                                        startActivity(new Intent(Home_Screen.this , LoginActivity.class));
+                                        finish();
+
+                                    }
+                                }).setNegativeButton("NO" , new SmartDialogClickListener2()
+                        {
+                            @Override
+                            public void onClick(SmartDialog2 smartDialog) {
+
+                                smartDialog.dismiss();
+                            }
+                        }).build().show();
+
+
+//                        AlertDialog.Builder builder = new AlertDialog.Builder(Home_Screen.this);
+//                        builder.setMessage("Do You Want To Logout")
+//                                .setCancelable(true)
+//                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                                    public void onClick(DialogInterface dialog, int id) {
+//                                        //do things
+//
+//
+//                                        SharedPreferences.Editor editor=sharedPreferences.edit();
+//                                        editor.putBoolean("isLogin",false);
+//                                        editor.apply();
+//                                        startActivity(new Intent(Home_Screen.this , LoginActivity.class));
+//                                        finish();
+////
+//
+//                                    }
+//                                }).setNegativeButton("No" , new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//
+//                            }
+//                        });
+//                        AlertDialog alert = builder.create();
+//                        alert.show();
+
+//                        dialogHeader_3 = new MaterialStyledDialog.Builder(Home_Screen.this)
+//                                .setHeaderDrawable(R.drawable.header)
+//                                .setIcon(new IconicsDrawable(Home_Screen.this).icon(MaterialDesignIconic.Icon.gmi_github).color(Color.WHITE))
+//                                .withDialogAnimation(true)
+//                                .setTitle("Do You Want To Logout")
+//                                .setPositiveText("Yes")
+//                                .setNegativeText("No")
+//                                .onPositive(new MaterialDialog.SingleButtonCallback() {
+//                                    @Override
+//                                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+//
+//                                        SharedPreferences.Editor editor=sharedPreferences.edit();
+//                                        editor.putBoolean("isLogin",false);
+//                                        editor.apply();
+//                                        startActivity(new Intent(Home_Screen.this , LoginActivity.class));
+//                                        finish();
+//
+//                                    }
+//                                }).onNegative(new MaterialDialog.SingleButtonCallback() {
+//                                    @Override
+//                                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+//
+//
+//                                    }
+//                                });
+//                        dialogHeader_3.show();
+
+                    }
+                });
+
             }
         });
 
@@ -306,7 +406,7 @@ public class Home_Screen extends BaseActivity {
     }
 
     private void getName() {
-        pDialog = Utilss.showSweetLoader(Home_Screen.this, SweetAlertDialog.PROGRESS_TYPE, "Fetching Data...");
+//        pDialog = Utilss.showSweetLoader(Home_Screen.this, SweetAlertDialog.PROGRESS_TYPE, "Fetching Data...");
 
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://api.bms.dwtdemo.com/api/v1/tenant/session", new Response.Listener<String>() {
@@ -341,9 +441,9 @@ public class Home_Screen extends BaseActivity {
                     editor.apply();
 
 //
-                    if (!namess2.equals(""))
+                    if (!namess3.equals(""))
                     {
-                        Glide.with(Home_Screen.this).load(namess2) .diskCacheStrategy( DiskCacheStrategy.ALL ).override(1080, 600).into(image_show);
+                        Glide.with(Home_Screen.this).load(namess3) .diskCacheStrategy( DiskCacheStrategy.ALL ).override(1080, 600).into(image_show);
                     }
 
                     else
@@ -362,7 +462,7 @@ public class Home_Screen extends BaseActivity {
                         public void run() {
 
 
-                            Utilss.hideSweetLoader(pDialog);
+//                            Utilss.hideSweetLoader(pDialog);
                         }
                     });
 
@@ -383,7 +483,7 @@ public class Home_Screen extends BaseActivity {
 
 
                                 Log.d("ErrorIs", error.toString());
-                                Utilss.hideSweetLoader(pDialog);
+//                                Utilss.hideSweetLoader(pDialog);
                             }
                         });
                     }
@@ -414,6 +514,21 @@ public class Home_Screen extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+
+
+        if (!isLogin) //if login is false
+
+        {
+            super.onBackPressed();
+        }
+
+        else
+        {
+//                    startActivity(new Intent(Home_Screen.this, ThirdScreen.class));
+//                    finish();
+        }
+
+
+
     }
 }

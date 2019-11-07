@@ -14,17 +14,24 @@
         android:gravity="center">
 
 
-        <TextView
+        <!--<TextView-->
+            <!--android:id="@+id/logout"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="logout"-->
+            <!--android:textStyle="bold"-->
+            <!--android:textSize="20dp"-->
+            <!--android:textColor="#000000"-->
+            <!--android:gravity="right"-->
+            <!--android:layout_marginRight="30dp"-->
+            <!--android:layout_marginTop="10dp"/>-->
+
+        <ImageView
             android:id="@+id/logout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="logout"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:textColor="#000000"
-            android:gravity="right"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="10dp"/>
+            android:layout_width="35dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="140dp"
+            app:srcCompat="@mipmap/logouts" />
 
         <ImageView
             android:id="@+id/imageView"
@@ -114,6 +121,7 @@
                 app:srcCompat="@drawable/propertiesicon" />
 
             <ImageView
+                android:id="@+id/sevice_list"
                 android:layout_height="130dp"
                 android:layout_width="130dp"
                 android:layout_row="0"

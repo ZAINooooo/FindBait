@@ -61,7 +61,7 @@
             >
 
             <ImageView
-
+                android:id="@+id/property"
                 android:layout_height="280dp"
                 android:layout_width="280dp"
                 android:layout_row="0"
@@ -69,7 +69,7 @@
                 app:srcCompat="@drawable/propertiesicon" />
 
             <ImageView
-                android:id="@+id/sss"
+                android:id="@+id/maintenance"
                 android:layout_height="280dp"
                 android:layout_width="280dp"
                 android:layout_row="0"

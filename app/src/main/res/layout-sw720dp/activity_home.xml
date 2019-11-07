@@ -13,10 +13,32 @@
         android:orientation="vertical"
         android:gravity="center">
 
+
+        <!--<TextView-->
+            <!--android:id="@+id/logout"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="logout"-->
+            <!--android:textStyle="bold"-->
+            <!--android:textSize="30dp"-->
+            <!--android:textColor="#000000"-->
+            <!--android:gravity="right"-->
+            <!--android:layout_marginRight="30dp"-->
+            <!--/>-->
+
+
+        <ImageView
+            android:id="@+id/logout"
+            android:layout_width="55dp"
+            android:layout_height="68dp"
+            android:layout_marginLeft="310dp"
+            app:srcCompat="@mipmap/logouts" />
+
+
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="275dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:layout_height="255dp"
             app:srcCompat="@drawable/logobordered" />
 
@@ -96,6 +118,7 @@
                 app:srcCompat="@drawable/propertiesicon" />
 
             <ImageView
+                android:id="@+id/sevice_list"
                 android:layout_height="280dp"
                 android:layout_width="280dp"
                 android:layout_row="0"
@@ -111,6 +134,7 @@
                 app:srcCompat="@drawable/feedbackicon" />
 
             <ImageView
+                android:id="@+id/contact_us"
                 android:layout_height="280dp"
                 android:layout_width="280dp"
                 android:layout_row="1"

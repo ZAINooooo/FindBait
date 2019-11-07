@@ -1,13 +1,12 @@
 package com.danyal.findabait;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.icu.text.SimpleDateFormat;
 import android.icu.util.TimeZone;
 import android.os.Build;
@@ -22,11 +21,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.afollestad.materialdialogs.DialogAction;
-import com.afollestad.materialdialogs.MaterialDialog;
 import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
-import com.mikepenz.iconics.IconicsDrawable;
-import com.mikepenz.material_design_iconic_typeface_library.MaterialDesignIconic;
+import com.rahman.dialog.Activity.SmartDialog;
+
+//import com.rahman.dialog2.ListenerCallBack.SmartDialogClickListener2;
+import com.rahman.dialog.ListenerCallBack.SmartDialogClickListener;
+import com.rahman.dialog.Utilities.SmartDialogBuilder;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -43,10 +43,8 @@ import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.RequestBody;
 
-import static com.danyal.findabait.LoginActivity.value2;
-
 public class FeedbackActivity extends BaseActivity {
-    String  result;
+    String  result,access_token;
     Date parsed;
     TextView date_value;
     Button btnss;
@@ -58,7 +56,11 @@ public class FeedbackActivity extends BaseActivity {
     MaterialStyledDialog.Builder dialogHeader_3;
 
     EditText customer_info;
-int tanent , realestate;
+    int tanent , realestate;
+    String info;
+
+    Typeface face,face2;
+
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -68,6 +70,7 @@ int tanent , realestate;
         sharedPreferences = getSharedPreferences("DATA", MODE_PRIVATE);
         isLogin = sharedPreferences.getBoolean("isLogin", false);
 
+        access_token = sharedPreferences.getString("token", "");
 
 
         tanent = sharedPreferences.getInt("tenantIds", 0);
@@ -75,12 +78,11 @@ int tanent , realestate;
 
 
 
-
-
-
         getWindow().setStatusBarColor(Color.TRANSPARENT);
 
 
+        face = Typeface.createFromAsset(FeedbackActivity.this.getAssets(),"ptsanswebbold.ttf");
+        face2 = Typeface.createFromAsset(FeedbackActivity.this.getAssets(),"ptsanswebregular.ttf");
 
         customer_info = findViewById(R.id.customer_info);
 
@@ -195,127 +197,187 @@ int tanent , realestate;
 
     private void submitfeedback()
     {
-        pDialog = Utilss.showSweetLoader(FeedbackActivity.this, SweetAlertDialog.PROGRESS_TYPE, "Submitting...");
+         info = customer_info.getText().toString();
+        if (access_token.equals(""))
+        {
 
-String info = customer_info.getText().toString();
+        }
 
-
-        JSONObject jsonObject = new JSONObject();
-        try {
-            jsonObject.put("TenantId", tanent);
-            jsonObject.put("RealStateId", realestate);
-            jsonObject.put("Feedback", info);
-
-
-            Log.d("HHHHH" , "            "      +   tanent  +  "       "    +     realestate+     "              " +         info   );
-
-            OkHttpClient client = new OkHttpClient();
-            MediaType JSON = MediaType.parse("application/json; charset=utf-8");
-            // put your json here
-            RequestBody body = RequestBody.create(JSON, jsonObject.toString());
-            okhttp3.Request request = new okhttp3.Request.Builder() .url("http://api.bms.dwtdemo.com/api/v1/feedback").post(body)
-                    .addHeader("Content-Type", "application/json")
-                    .addHeader("Authorization", "Bearer "+value2).build();
-
-
-            Call call = client.newCall(request);
-            call.enqueue(new Callback() {
-                @Override
-                public void onFailure(final Call call, final IOException e) {
-
-
-
-
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            Utilss.hideSweetLoader(pDialog);
-
-                            Log.e("HttpService", "onFailure() Request was: " + call);
-                            e.printStackTrace();
-                        }
-                    });
-
-                    Toast.makeText(FeedbackActivity.this, "Error in retreival", Toast.LENGTH_SHORT).show();
-
-
-
-                }
-
-                @Override
-                public void onResponse(Call call, okhttp3.Response response) throws IOException {
-
-
-
-                    String responses = response.body().string();
-                    Log.e("response", "onResponse(): " + responses);
-
-                    try {
-
-                        if (response.code() == 200)
-                        {
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Utilss.hideSweetLoader(pDialog);
-                                }
-                            });
-
-                            json = new JSONObject(responses);
-                            value3 = json.getString("message");
-
-
-
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-
-                                    dialogHeader_3 = new MaterialStyledDialog.Builder(FeedbackActivity.this)
-                                            .setHeaderDrawable(R.drawable.header)
-                                            .setIcon(new IconicsDrawable(FeedbackActivity.this).icon(MaterialDesignIconic.Icon.gmi_github).color(Color.WHITE))
-                                            .withDialogAnimation(true)
-                                            .setTitle("Confirmation Message")
-                                            .setDescription(value3)
-                                            .setPositiveText("OK")
-                                            .onPositive(new MaterialDialog.SingleButtonCallback() {
-                                                @Override
-                                                public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+        else if (info.equals(""))
+        {
+//            AlertDialog.Builder builder = new AlertDialog.Builder(FeedbackActivity.this);
+//            builder.setMessage("Error Message").setMessage("Feedback is required")
+//                    .setCancelable(false)
+//                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog, int id) {
+//                            //do things
 //
-//                                                    startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
+//                        }
+//                    });
+//            AlertDialog alert = builder.create();
+//            alert.show();
 
-                                                }
-                                            });
-                                    dialogHeader_3.show();
-                                }
-                            });
+            new SmartDialogBuilder(FeedbackActivity.this)
+                    .setTitle("Error Message")
+                    .setSubTitle("Feedback is required")
+                    .setCancalable(true)
+                    .setTitleFont(face)
+                    .setSubTitleFont(face2)
+                    .setPositiveButton("OK", new SmartDialogClickListener() {
+                        @Override
+                        public void onClick(SmartDialog smartDialog) {
+                            smartDialog.dismiss();
+                        }
+                    }).build().show();
+
+        }
+
+        else
+        {
+            pDialog = Utilss.showSweetLoader(FeedbackActivity.this, SweetAlertDialog.PROGRESS_TYPE, "Submitting...");
 
 
 
+            JSONObject jsonObject = new JSONObject();
+            try {
+                jsonObject.put("TenantId", tanent);
+                jsonObject.put("RealStateId", realestate);
+                jsonObject.put("Feedback", info);
+
+                Log.d("HHHHH" , "            "      +   tanent  +  "       "    +     realestate+     "              " +         info   );
+
+                OkHttpClient client = new OkHttpClient();
+                MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+                // put your json here
+                RequestBody body = RequestBody.create(JSON, jsonObject.toString());
+                okhttp3.Request request = new okhttp3.Request.Builder() .url("http://api.bms.dwtdemo.com/api/v1/feedback").post(body)
+                        .addHeader("Content-Type", "application/json")
+                        .addHeader("Authorization", "Bearer "+access_token).build();
+
+
+                Call call = client.newCall(request);
+                call.enqueue(new Callback() {
+                    @Override
+                    public void onFailure(final Call call, final IOException e) {
+
+
+
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Utilss.hideSweetLoader(pDialog);
+
+                                Log.e("HttpService", "onFailure() Request was: " + call);
+                                e.printStackTrace();
+                            }
+                        });
+
+                        Toast.makeText(FeedbackActivity.this, "Error in retreival", Toast.LENGTH_SHORT).show();
+
+
+
+                    }
+
+                    @Override
+                    public void onResponse(Call call, okhttp3.Response response) throws IOException {
+
+
+
+                        String responses = response.body().string();
+                        Log.e("response", "onResponse(): " + responses);
+
+                        try {
+
+                            if (response.code() == 200)
+                            {
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Utilss.hideSweetLoader(pDialog);
+                                    }
+                                });
+
+                                json = new JSONObject(responses);
+                                value3 = json.getString("message");
+
+
+
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+
+//                                        dialogHeader_3 = new MaterialStyledDialog.Builder(FeedbackActivity.this)
+//                                                .setHeaderDrawable(R.drawable.header)
+//                                                .setIcon(new IconicsDrawable(FeedbackActivity.this).icon(MaterialDesignIconic.Icon.gmi_github).color(Color.WHITE))
+//                                                .withDialogAnimation(true)
+//                                                .setTitle("Confirmation Message")
+//                                                .setDescription(value3)
+//                                                .setPositiveText("OK")
+//                                                .onPositive(new MaterialDialog.SingleButtonCallback() {
+//                                                    @Override
+//                                                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+////
+////                                                    startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
+//
+//                                                        customer_info.setText("");
+//                                                        startActivity(new Intent(FeedbackActivity.this , Home_Screen.class));
+//                                                        finish();
+//
+//                                                    }
+//                                                });
+//                                        dialogHeader_3.show();
+
+
+                                        new SmartDialogBuilder(FeedbackActivity.this)
+                                                .setTitle("Confirmation Message")
+                                                .setSubTitle(value3)
+                                                .setCancalable(true)
+                                                .setTitleFont(face)
+                                                .setSubTitleFont(face2)
+                                                .setPositiveButton("OK", new SmartDialogClickListener() {
+                                                    @Override
+                                                    public void onClick(SmartDialog smartDialog) {
+                                                        smartDialog.dismiss();
+
+                                                        customer_info.setText("");
+                                                        startActivity(new Intent(FeedbackActivity.this , Home_Screen.class));
+                                                        finish();
+
+                                                    }
+                                                }).build().show();
+
+                                    }
+                                });
+
+
+
+
+
+                            }
 
 
                         }
 
+                        catch (JSONException e)
+                        {
+
+                        }
+
+
+
+
+
 
                     }
-
-                    catch (JSONException e)
-                    {
-
-                    }
+                });
 
 
 
 
-
-
-                }
-            });
-
-
-
-
-        } catch (JSONException e) {
-            e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
 
 

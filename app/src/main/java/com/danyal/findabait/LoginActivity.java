@@ -1,16 +1,11 @@
 package com.danyal.findabait;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.icu.text.SimpleDateFormat;
-import android.icu.util.TimeZone;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,19 +18,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.afollestad.materialdialogs.DialogAction;
-import com.afollestad.materialdialogs.MaterialDialog;
 import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
-import com.mikepenz.iconics.IconicsDrawable;
-import com.mikepenz.material_design_iconic_typeface_library.MaterialDesignIconic;
+import com.rahman.dialog.Activity.SmartDialog;
+import com.rahman.dialog.ListenerCallBack.SmartDialogClickListener;
+import com.rahman.dialog.Utilities.SmartDialogBuilder;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.text.ParseException;
 import java.util.Date;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
@@ -51,7 +43,7 @@ public class LoginActivity extends BaseActivity {
     Date parsed = null;
     TextView forgot_password;
     EditText email,password;
-String emailaddress , passwowrdfield;
+String emailaddress , passwowrdfield,emailPattern;
     ImageView about_us_login,home_login;
     OkHttpClient client;
 String responses2,value3,valueError;
@@ -60,6 +52,8 @@ String responses2,value3,valueError;
     boolean isLogin;
 
     SharedPreferences sharedPreferences;
+    Typeface face,face2;
+
 
 //    SharedPreferences sharedPreferences;
 //    boolean isLogin;
@@ -74,8 +68,13 @@ String responses2,value3,valueError;
 
         client = new OkHttpClient();
 
+         face = Typeface.createFromAsset(LoginActivity.this.getAssets(),"ptsanswebbold.ttf");
+         face2 = Typeface.createFromAsset(LoginActivity.this.getAssets(),"ptsanswebregular.ttf");
+
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
+        emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
 
         forgot_password = findViewById(R.id.forgot_password);
 //        date_value = findViewById(R.id.date_value);
@@ -136,12 +135,86 @@ String responses2,value3,valueError;
 
                 if (emailaddress.equals("") || passwowrdfield.equals(""))
                 {
-                    Toast.makeText(LoginActivity.this, "Fill Up The credentials", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(LoginActivity.this, "Fill Up The credentials", Toast.LENGTH_SHORT).show();
+
+//                    AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+//                    builder.setMessage("Fill Up The credentials both")
+//                            .setCancelable(false)
+//                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                                public void onClick(DialogInterface dialog, int id) {
+//                                    //do things
+//
+//
+//                                }
+//                            });
+//                    AlertDialog alert = builder.create();
+//                    alert.show();
+
+                    new SmartDialogBuilder(LoginActivity.this)
+                            .setTitle("Error Message")
+                            .setSubTitle("Credentials Required")
+                            .setCancalable(true)
+                            .setTitleFont(face)
+                            .setSubTitleFont(face2)
+                            .setPositiveButton("OK", new SmartDialogClickListener(){
+                                @Override
+                                public void onClick(SmartDialog smartDialog) {
+                                    smartDialog.dismiss();
+                                }
+                            }).build().show();
+
+
                 }
 
                 else if (emailaddress.equals("") && passwowrdfield.equals(""))
                 {
-                    Toast.makeText(LoginActivity.this, "Fill Up The credentials both", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(LoginActivity.this, "Fill Up The credentials both", Toast.LENGTH_SHORT).show();
+
+                    new SmartDialogBuilder(LoginActivity.this)
+                            .setTitle("Error Message")
+                            .setSubTitle("Both Credentials Required")
+                            .setCancalable(true)
+                            .setTitleFont(face)
+                            .setSubTitleFont(face2)
+                            .setPositiveButton("OK", new SmartDialogClickListener() {
+                                @Override
+                                public void onClick(SmartDialog smartDialog) {
+                                    smartDialog.dismiss();
+                                }
+                            }).build().show();
+
+
+                }
+
+                else if (!emailaddress.matches(emailPattern))
+                {
+//                    Toast.makeText(LoginActivity.this, "Wrong Email Format.!!", Toast.LENGTH_SHORT).show();
+
+//                    AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+//                    builder.setMessage("Wrong Email Format")
+//                            .setCancelable(false)
+//                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                                public void onClick(DialogInterface dialog, int id) {
+//                                    //do things
+//
+//
+//                                }
+//                            });
+//                    AlertDialog alert = builder.create();
+//                    alert.show();
+
+                    new SmartDialogBuilder(LoginActivity.this)
+                            .setTitle("Error Message")
+                            .setSubTitle("Wrong Email Format")
+                            .setCancalable(true)
+                            .setTitleFont(face)
+                            .setSubTitleFont(face2)
+                            .setPositiveButton("OK", new SmartDialogClickListener() {
+                                @Override
+                                public void onClick(SmartDialog smartDialog) {
+                                    smartDialog.dismiss();
+                                }
+                            }).build().show();
 
                 }
 
@@ -242,6 +315,8 @@ String responses2,value3,valueError;
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.putString("email", emailaddress);
                                 editor.putString("password", passwowrdfield);
+
+                                editor.putString("token", value2);
                                 editor.putBoolean("isLogin", isLogin);
                                 editor.apply();
 
@@ -274,22 +349,35 @@ String responses2,value3,valueError;
                                 Log.e("responseError", "onResponse2(): " + valueError);
 
 
-                                dialogHeader_3 = new MaterialStyledDialog.Builder(LoginActivity.this)
-                                        .setHeaderDrawable(R.drawable.header)
-                                        .setIcon(new IconicsDrawable(LoginActivity.this).icon(MaterialDesignIconic.Icon.gmi_github).color(Color.WHITE))
-                                        .withDialogAnimation(true)
-                                        .setTitle("Error Message")
-                                        .setDescription(valueError)
-                                        .setPositiveText("OK")
-                                        .onPositive(new MaterialDialog.SingleButtonCallback() {
-                                            @Override
-                                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+//                                dialogHeader_3 = new MaterialStyledDialog.Builder(LoginActivity.this)
+//                                        .setHeaderDrawable(R.drawable.header)
+//                                        .setIcon(new IconicsDrawable(LoginActivity.this).icon(MaterialDesignIconic.Icon.gmi_github).color(Color.WHITE))
+//                                        .withDialogAnimation(true)
+//                                        .setTitle("Error Message")
+//                                        .setDescription(valueError)
+//                                        .setPositiveText("OK")
+//                                        .onPositive(new MaterialDialog.SingleButtonCallback() {
+//                                            @Override
+//                                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+////
+////                                                    startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
 //
-//                                                    startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
+//                                            }
+//                                        });
+//                                dialogHeader_3.show();
 
+                                new SmartDialogBuilder(LoginActivity.this)
+                                        .setTitle("Error Message")
+                                        .setSubTitle(valueError)
+                                        .setCancalable(true)
+                                        .setTitleFont(face)
+                                        .setSubTitleFont(face2)
+                                        .setPositiveButton("OK", new SmartDialogClickListener() {
+                                            @Override
+                                            public void onClick(SmartDialog smartDialog) {
+                                                smartDialog.dismiss();
                                             }
-                                        });
-                                dialogHeader_3.show();
+                                        }).build().show();
 
 
                             } catch (JSONException e) {
@@ -321,7 +409,10 @@ String responses2,value3,valueError;
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+//        super.onBackPressed();
+
+        startActivity(new Intent(LoginActivity.this , ThirdScreen.class));
+        finish();
 
 
     }
