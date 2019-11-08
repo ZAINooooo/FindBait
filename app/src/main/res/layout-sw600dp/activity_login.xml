@@ -50,7 +50,7 @@
             android:orientation="vertical"
             android:gravity="center">
             <EditText
-
+                android:id="@+id/email"
                 android:hint="Email Address"
                 android:textStyle="bold"
                 android:textSize="20dp"
@@ -64,6 +64,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/txtbackground"/>
             <EditText
+                android:id="@+id/password"
                 android:hint="Passoword"
                 android:paddingLeft="4dp"
                 android:paddingRight="4dp"
@@ -77,6 +78,7 @@
                 android:inputType="textPassword"
                 android:background="@drawable/txtbackground"/>
             <Button
+
                 android:id="@+id/login_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -103,6 +105,7 @@
 
 
         <GridLayout
+            android:id="@+id/grid2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:rowCount="1"

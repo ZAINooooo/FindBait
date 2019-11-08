@@ -9,10 +9,11 @@
 
 
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
+        android:layout_above="@id/bottom_navigation"
         android:layout_marginRight="10dp"
         android:orientation="vertical" >
 
@@ -28,8 +29,7 @@
             <RelativeLayout
                 android:id="@+id/back_pressed"
                 android:layout_width="match_parent"
-                android:layout_height="1300dp"
-                android:layout_marginTop="20dp"
+                android:layout_height="match_parent"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -246,7 +246,7 @@
 
 
         </ScrollView>
-    </LinearLayout>
+    </RelativeLayout>
 
 
 
@@ -260,6 +260,7 @@
 
         >
         <ImageView
+            android:id="@+id/homess"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@drawable/home"
@@ -272,6 +273,7 @@
             android:layout_weight="1"
             android:padding="2dp"/>
         <ImageView
+            android:id="@+id/about_us"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@drawable/aboutus"

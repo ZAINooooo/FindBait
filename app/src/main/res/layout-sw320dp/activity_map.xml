@@ -20,25 +20,6 @@
             android:layout_height="128dp"
             app:srcCompat="@drawable/logobordered" />
 
-        <!--<LinearLayout-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:orientation="horizontal">-->
-
-        <!--&lt;!&ndash;<ImageView&ndash;&gt;-->
-        <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
-        <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
-        <!--&lt;!&ndash;android:src="@drawable/clock"/>&ndash;&gt;-->
-        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
-        <!--&lt;!&ndash;android:id="@+id/date_value"&ndash;&gt;-->
-        <!--&lt;!&ndash;android:paddingLeft="4sp"&ndash;&gt;-->
-        <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
-        <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
-        <!--&lt;!&ndash;android:fontFamily="@font/montserrat"&ndash;&gt;-->
-        <!--&lt;!&ndash;android:text="Friday, 17/2/19, 10:35 PM"&ndash;&gt;-->
-        <!--&lt;!&ndash;android:textColor="#943938"/>&ndash;&gt;-->
-        <!--</LinearLayout>-->
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

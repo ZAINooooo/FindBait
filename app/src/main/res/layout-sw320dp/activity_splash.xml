@@ -46,9 +46,8 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="60dp"
             android:layout_height="wrap_content"
-            android:text="  Let Us Guide You New
-            \n              Home!"
-            android:layout_marginLeft="90dp"
+            android:text="  Let Us Guide You New \n              Home!"
+            android:layout_marginLeft="100dp"
             android:textColor="#ffffff"
             android:textSize="16sp"
             android:textStyle="bold|normal"

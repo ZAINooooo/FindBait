@@ -24,7 +24,7 @@
         <RelativeLayout
             android:id="@+id/nj"
             android:layout_width="fill_parent"
-            android:layout_marginTop="250dp"
+            android:layout_marginTop="180dp"
             android:alpha="1"
             android:layout_height="wrap_content">
 
@@ -46,11 +46,10 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="80dp"
             android:layout_height="wrap_content"
-            android:text="  Let Us Guide You New
-            \n              Home!"
-            android:layout_marginLeft="120dp"
+            android:text="  Let Us Guide You New \n              Home!"
+            android:layout_marginLeft="80dp"
             android:textColor="#ffffff"
-            android:textSize="22sp"
+            android:textSize="20sp"
             android:textStyle="bold|normal"
             android:fontFamily="@font/montserrat" />
 

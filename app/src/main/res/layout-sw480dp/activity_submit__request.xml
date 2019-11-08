@@ -3,9 +3,10 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@id/bottom_navigation"
 
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
@@ -22,7 +23,7 @@
             <RelativeLayout
                 android:id="@+id/back_pressed"
                 android:layout_width="match_parent"
-                android:layout_height="750dp"
+                android:layout_height="match_parent"
                 android:layout_marginTop="20dp"
                 android:orientation="horizontal">
 
@@ -251,7 +252,7 @@ android:layout_centerHorizontal="true"
 
 
 
-    </LinearLayout>
+    </RelativeLayout>
 
 
     <LinearLayout
@@ -264,6 +265,7 @@ android:layout_centerHorizontal="true"
 
         >
         <ImageView
+            android:id="@+id/homess"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@drawable/home"
@@ -276,6 +278,7 @@ android:layout_centerHorizontal="true"
             android:layout_weight="1"
             android:padding="2dp"/>
         <ImageView
+            android:id="@+id/about_us"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@drawable/aboutus"
