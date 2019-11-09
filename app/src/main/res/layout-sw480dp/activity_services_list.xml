@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg1"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+
+    <Spinner
+        android:id="@+id/spLeaveSubject2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25.0dip"
+        android:background="@drawable/ik" />
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_above="@+id/bottom_navigation"
+        android:layout_below="@id/spLeaveSubject2"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView123"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:paddingLeft="20dp"
+            android:fontFamily="@font/montserrat"
+            android:text="What can we help you?"
+            android:textColor="#000000"
+            android:textSize="18dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_below="@id/textView123"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:scrollbars="none"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"
+
+        >
+        <ImageView
+            android:id="@+id/homess"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingTop="4dp"
+            android:src="@drawable/home"
+            android:layout_marginLeft="0dp"
+            android:layout_weight="1"
+            />
+        <ImageView
+            android:id="@+id/rate_us"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingTop="4dp"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/rateus"
+            android:layout_weight="1"
+            />
+        <ImageView
+            android:id="@+id/about_us"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingTop="4dp"
+            android:layout_marginRight="0dp"
+            android:src="@drawable/aboutus"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+</RelativeLayout>

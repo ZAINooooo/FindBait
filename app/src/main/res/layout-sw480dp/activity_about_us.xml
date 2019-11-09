@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ThirdScreen"
+    android:background="@drawable/bg1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="135dp"
+            android:layout_marginTop="0dp"
+            android:layout_height="128dp"
+            app:srcCompat="@drawable/logobordered" />
+
+        <!--<LinearLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--&lt;!&ndash;<ImageView&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:src="@drawable/clock"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+        <!--&lt;!&ndash;android:id="@+id/date_value"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:paddingLeft="4sp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:fontFamily="@font/montserrat"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:text="Friday, 17/2/19, 10:35 PM"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:textColor="#943938"/>&ndash;&gt;-->
+        <!--</LinearLayout>-->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:textColor="#000000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="About Us"
+                android:fontFamily="@font/montserrat"
+                android:textSize="25dp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+
+
+
+
+        <TextView
+            android:textColor="#000000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="15dp"
+            android:gravity="center"
+            android:paddingEnd="10dp"
+            android:layout_marginTop="20dp"
+
+
+
+            android:fontFamily="@font/montserrat"
+            android:text="Your business objectives are the cornerstone of what we do. You might be aiming for increased revenue, reduced costs, higher employee satisfaction or better-informed investors. Whatever the drivers, we are experts at uncovering those objectives and delivering against them. \n\nWe have a rare blend of skills. We understand business drivers, complex business processes, data integrity and systems integration. Doing so creates use able software And website that unlocks business value.
+
+
+\n\nFIND A BAIT were established in 2017, we have worked on assignments: from point of sale financial applications to customizable B2B mobile apps and eCommerce online shops with complete payment gateway integration."
+            android:textSize="13dp" />
+
+
+        <!--</LinearLayout>-->
+
+
+
+
+
+
+
+
+
+
+
+
+        <GridLayout
+            android:id="@+id/grid2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:rowCount="1"
+            android:layout_marginTop="50dp"
+            android:columnCount="4"
+
+            >
+            <ImageView
+                android:padding="1dp"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:src="@drawable/facebook"
+                />
+            <ImageView
+                android:padding="1dp"
+                android:layout_row="0"
+                android:layout_marginLeft="5dp"
+                android:layout_column="1"
+                android:src="@drawable/instagram"
+                />
+            <ImageView
+                android:padding="1dp"
+                android:layout_row="0"
+                android:layout_marginLeft="5dp"
+
+                android:layout_column="2"
+                android:src="@drawable/twitter"
+                />
+            <ImageView
+                android:padding="1dp"
+                android:layout_row="0"
+                android:layout_marginLeft="5dp"
+
+                android:layout_column="3"
+                android:src="@drawable/youtube"
+                />
+
+        </GridLayout>
+
+
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"
+
+        >
+        <ImageView
+            android:id="@+id/homess"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingTop="4dp"
+            android:src="@drawable/home"
+            android:layout_marginLeft="0dp"
+            android:layout_weight="1"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingTop="4dp"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/rateus"
+            android:layout_weight="1"
+            />
+        <ImageView
+            android:id="@+id/about_us"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingTop="4dp"
+            android:layout_marginRight="0dp"
+            android:src="@drawable/aboutus"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+
+    <!--</RelativeLayout>-->
+
+
+    <!--</RelativeLayout>-->
+</RelativeLayout>

@@ -261,7 +261,7 @@ String responses2,value3,valueError;
 
     private void login()
     {
-        pDialog = Utilss.showSweetLoader(LoginActivity.this, SweetAlertDialog.PROGRESS_TYPE, "Loging...");
+        pDialog = Utilss.showSweetLoader(LoginActivity.this, SweetAlertDialog.PROGRESS_TYPE, "");
         RequestBody formBody = new FormBody.Builder().add("grant_type", "password").add("username", emailaddress).add("password", passwowrdfield).build();
 
         final Request request = new Request.Builder()
