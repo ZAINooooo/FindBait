@@ -416,6 +416,11 @@
                         android:hint="Type Something Here"
                         android:paddingLeft="20dp"
                         android:textSize="10dp"
+
+                        android:focusable="false"
+                        android:clickable="false"
+                        android:enabled="false"
+
                         android:paddingBottom="30dp"
                         android:layout_marginTop="60dp"
                         android:background="@drawable/group_247"
@@ -440,6 +445,7 @@
 
 
                     <LinearLayout
+                        android:id="@+id/job_work"
                         android:layout_width="369dp"
                         android:layout_height="40dp"
                         android:gravity="center_horizontal"
