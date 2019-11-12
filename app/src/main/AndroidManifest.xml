@@ -20,7 +20,10 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:replace="android:icon">
-        <activity android:name=".TicketHistory"></activity>
+        <activity android:name=".Property_Screen3"></activity>
+        <activity android:name=".Property_Screen2" />
+        <activity android:name=".Property_Screen1" />
+        <activity android:name=".TicketHistory" />
         <activity
             android:name=".ServicesList"
             android:screenOrientation="portrait" />

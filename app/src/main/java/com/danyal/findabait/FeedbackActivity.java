@@ -120,7 +120,7 @@ public class FeedbackActivity extends BaseActivity {
             public void onClick(View v) {
 
                 startActivity(new Intent(FeedbackActivity.this , AboutUsActivity.class));
-                finish();
+//                finish();
             }
         });
 

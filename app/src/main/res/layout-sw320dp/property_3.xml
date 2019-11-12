@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg1"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_height="250dp"
+        app:srcCompat="@drawable/room" />
+
+    <TextView
+        android:id="@+id/textAed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="AED 44,999"
+        android:layout_marginTop="10dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorAccent"
+        android:layout_below="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/textSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="1200 Sqft - 2 Beds - 1 Bath"
+        android:layout_below="@+id/textAed" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="22dp"
+        android:layout_height="26dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/textSize"
+        android:layout_marginTop="23dp"
+        app:srcCompat="@drawable/error" />
+
+    <TextView
+        android:id="@+id/textOffer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="338dp"
+        android:fontFamily="@font/montserrat"
+        android:layout_marginLeft="50dp"
+        android:layout_toRightOf="@drawable/error"
+        android:text="Exclusive apartments near the busy area"
+        android:textColor="@android:color/black"
+        android:textSize="15sp" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="22dp"
+        android:layout_height="26dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@drawable/error"
+        android:layout_marginTop="380dp"
+        app:srcCompat="@drawable/whatsapp" />
+
+    <TextView
+        android:id="@+id/textContact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="383dp"
+        android:layout_marginLeft="50dp"
+        android:fontFamily="@font/montserrat"
+        android:layout_toRightOf="@drawable/whatsapp"
+        android:text="Contact"
+        android:textColor="@android:color/black"
+        android:textSize="15sp" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="22dp"
+        android:layout_height="26dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@drawable/whatsapp"
+        android:layout_marginTop="420dp"
+        app:srcCompat="@drawable/giftbox" />
+
+    <TextView
+        android:id="@+id/textPackage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="423dp"
+        android:layout_marginLeft="50dp"
+        android:fontFamily="@font/montserrat"
+        android:layout_toRightOf="@drawable/giftbox"
+        android:text="Package"
+        android:textColor="@android:color/black"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/btnOrder"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="490dp"
+        android:textSize="10sp"
+        android:text="Ask A Question" />
+
+    <Button
+        android:id="@+id/btnConfirm"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="190dp"
+        android:layout_marginTop="490dp"
+        android:text="Express Interest"
+        android:textSize="10sp"/>
+
+
+</RelativeLayout>

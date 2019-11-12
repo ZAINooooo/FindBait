@@ -138,7 +138,7 @@ String access_token;
             public void onClick(View v) {
 
                 startActivity(new Intent(ServicesList.this , AboutUsActivity.class));
-                finish();
+//                finish();
             }
         });
 

@@ -73,7 +73,7 @@ public class ForgotPassword extends BaseActivity {
             public void onClick(View v) {
 
                 startActivity(new Intent(ForgotPassword.this , AboutUsActivity.class));
-                finish();
+//                finish();
             }
         });
 

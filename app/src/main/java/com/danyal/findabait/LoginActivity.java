@@ -100,7 +100,7 @@ String responses2,value3,valueError;
             public void onClick(View v) {
 
                 startActivity(new Intent(LoginActivity.this , AboutUsActivity.class));
-                finish();
+//                finish();
             }
         });
 

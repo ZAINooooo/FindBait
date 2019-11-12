@@ -64,7 +64,6 @@ public class AboutUsActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         if (!isLogin) //if login is false
-
         {
             startActivity(new Intent(AboutUsActivity.this , ThirdScreen.class));
             finish();
@@ -72,12 +71,12 @@ public class AboutUsActivity extends AppCompatActivity {
 
         else
         {
-            startActivity(new Intent(AboutUsActivity.this, Home_Screen.class));
-            finish();
+//            startActivity(new Intent(AboutUsActivity.this, Home_Screen.class));
+//            finish();
+
+            super.onBackPressed();
         }
 
 
-
-        super.onBackPressed();
     }
 }

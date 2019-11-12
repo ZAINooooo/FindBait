@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+
+        android:id="@+id/image"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/image"
+
+        >
+
+    </ImageView>
+    <RelativeLayout
+        android:id="@id/image2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/image"
+        android:padding="5dp"
+        android:layout_marginLeft="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AED 21,291"
+            android:id="@+id/textView1"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            >
+
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2"
+            android:textSize="15sp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="10dp"
+            android:text="252 last answers"
+            android:layout_marginLeft="140dp"
+            >
+
+        </TextView>
+
+    </RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_below="@id/image2"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:id="@+id/textView3"
+        android:layout_marginLeft="20dp"
+        android:text="1-4 Beds, 2 Baths">
+
+    </TextView>
+
+</RelativeLayout>

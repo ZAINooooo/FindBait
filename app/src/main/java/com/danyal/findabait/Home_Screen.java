@@ -142,7 +142,7 @@ Typeface face,face2;
             public void onClick(View v) {
 
                 startActivity(new Intent(Home_Screen.this, AboutUsActivity.class));
-                finish();
+//                finish();
             }
         });
 

@@ -1,28 +1,35 @@
 package com.danyal.findabait;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+
 import android.util.Log;
+
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.NetworkResponse;
+import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,53 +38,68 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
+
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
+import static android.Manifest.permission.INTERNET;
+
 public class TicketHistory extends AppCompatActivity {
 
-    LinearLayout back_pressed;
-    ArrayList<TicketHistoryPojo> mFlowerList;
+    // Array List (String Variables)
+    ArrayList<Integer> id = new ArrayList<Integer>();
+    ArrayList<String> name = new ArrayList<String>();
+    ArrayList<String> logo = new ArrayList<String>();
+    ArrayList<String> status = new ArrayList<String>();
+    ArrayList<String> serviceRequestNo = new ArrayList<String>();
+    ArrayList<String> state = new ArrayList<String>();
+
+    // Objects for Recycler View
+    RecyclerView myRecView;
+    Ticket_History_Adapter mAdapt;
+    LinearLayoutManager manager;
+
     ImageView homess,about_us;
     SharedPreferences sharedPreferences;
     boolean isLogin;
     String access_token;
+    LinearLayout back_pressed;
     int tanent , realestate;
-
-    RecyclerView mRecyclerView;
-    Ticket_History_Adapter dataListAdapter;
 String statusCode;
+
+    int totalPages,current_page;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ticket_history);
 
 
-        mFlowerList =new ArrayList<>();
         sharedPreferences = getSharedPreferences("DATA", MODE_PRIVATE);
         isLogin = sharedPreferences.getBoolean("isLogin", false);
         access_token = sharedPreferences.getString("token", "");
         tanent = sharedPreferences.getInt("tenantIds", 0);
 
-
-
         homess = findViewById(R.id.homess);
         back_pressed = findViewById(R.id.back_pressed);
-
         about_us = findViewById(R.id.about_us);
-//        rate_us = findViewById(R.id.rate_us);
 
-        mRecyclerView = findViewById(R.id.recyclerview);
 
-        mRecyclerView.setHasFixedSize(true);
+        // Assigning Views
+        myRecView = (RecyclerView) findViewById(R.id.my_rec_view);
+//        mAdapt = new Ticket_History_Adapter();
 
-        dataListAdapter = new Ticket_History_Adapter(TicketHistory.this, mFlowerList);
-        dataListAdapter.setDataList(mFlowerList);
+        // Checking network and internet permissions
+        if (Networking.hasPermissions(this, INTERNET) && Networking.isConnected(this)) {
+            // Call Get Page Method
+            getPage(1);
+        } else {
+            // In Case internet is not available
+            Toast.makeText(this, "Not Connected to Internet", Toast.LENGTH_SHORT).show();
+        }
 
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(Objects.requireNonNull(TicketHistory.this), DividerItemDecoration.VERTICAL));
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(TicketHistory.this));
-        mRecyclerView.setAdapter(dataListAdapter);
+        // Setting up Recycler View
+
 
 
         homess.setOnClickListener(new View.OnClickListener() {
@@ -109,30 +131,27 @@ String statusCode;
         });
 
 
+
         about_us.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 startActivity(new Intent(TicketHistory.this , AboutUsActivity.class));
-                finish();
+//                finish();
             }
         });
 
 
-
-        gettickethistory();
-
-//
-
-
-
+        manager = new LinearLayoutManager(TicketHistory.this);
+        myRecView.setLayoutManager(manager);
+        mAdapt = new Ticket_History_Adapter(id, logo,name,status,serviceRequestNo,state, TicketHistory.this, totalPages,current_page);
+        myRecView.setAdapter(mAdapt);
     }
 
-    private void gettickethistory() {
-
-        mFlowerList =new ArrayList<>();
+    // Function to get page
+    public void getPage(int pageNum) {
         com.android.volley.RequestQueue queue = Volley.newRequestQueue(TicketHistory.this);
-        String url = "http://api.bms.dwtdemo.com/api/v1/en/tenants/"+tanent+"/services/requests";
+        String url = "http://api.bms.dwtdemo.com/api/v1/en/tenants/"+tanent+"/services/requests?page="+pageNum;
         StringRequest stringRequest = new StringRequest(com.android.volley.Request.Method.GET, url,
                 new com.android.volley.Response.Listener<String>() {
                     @Override
@@ -146,12 +165,17 @@ String statusCode;
                             try {
 
                                 JSONObject jsonObject = new JSONObject(response);
+                                totalPages = jsonObject.getInt("totalPages");
+                                current_page = jsonObject.getInt("currentPage");
+
+                                Log.d("Total_Pages" , ""+totalPages);
+
                                 JSONObject jsonObjCurrently= jsonObject.getJSONObject("data");
-                                JSONArray jsonDataset1 = jsonObjCurrently.getJSONArray("services");
+                                JSONArray body = jsonObjCurrently.getJSONArray("services");
 
 
 
-                                if (jsonDataset1.length()==0)
+                                if (body.length()==0)
                                 {
                                     SweetAlertDialog pDialog = new SweetAlertDialog(TicketHistory.this, SweetAlertDialog.ERROR_TYPE).setConfirmButton("OK" , new SweetAlertDialog.OnSweetClickListener() {
                                         @Override
@@ -166,25 +190,21 @@ String statusCode;
                                     pDialog.setCancelable(true);
                                     pDialog.show();
                                 }
+//
+                                else {
+//                                    mFlowerList.clear();
 
-                                else
-                                {
-                                    mFlowerList.clear();
+                                    for (int i = 0; i < body.length(); i++) {
+//                                        JSONObject jsonObject3 = new JSONObject(String.valueOf(jsonDataset1.get(i)));
 
-                                    for (int i = 0; i < jsonDataset1.length(); i++) {
-                                        JSONObject jsonObject3 = new JSONObject(String.valueOf(jsonDataset1.get(i)));
-                                        TicketHistoryPojo dataObject = new TicketHistoryPojo();
-
-                                        dataObject.setID(jsonObject3.getInt("id"));
-                                        dataObject.setName(jsonObject3.getString("name"));
-                                        dataObject.setLogo(jsonObject3.getString("logo"));
-                                        dataObject.setStatus(jsonObject3.getString("status"));
-                                        dataObject.setServiceRequestNo(jsonObject3.getString("serviceRequestNo"));
-                                        dataObject.setState(jsonObject3.getString("state"));
-
-
-                                        mFlowerList.add(dataObject);
-                                        dataListAdapter.notifyDataSetChanged();
+                                        id.add(body.getJSONObject(i).getInt("id"));
+                                        name.add(body.getJSONObject(i).getString("name"));
+                                        logo.add(body.getJSONObject(i).getString("logo"));
+                                        status.add(body.getJSONObject(i).getString("status"));
+                                        serviceRequestNo.add(body.getJSONObject(i).getString("serviceRequestNo"));
+                                        state.add(body.getJSONObject(i).getString("state"));
+                                        mAdapt = new Ticket_History_Adapter(id, name, logo, status, serviceRequestNo, state, TicketHistory.this, totalPages, current_page);
+                                        mAdapt.notifyDataSetChanged();
 
 
                                         runOnUiThread(new Runnable() {
@@ -195,13 +215,17 @@ String statusCode;
                                             }
 
                                         });
-
-
                                     }
 
-                                    dataListAdapter = new Ticket_History_Adapter(TicketHistory.this, mFlowerList);
-                                    dataListAdapter.setDataList(mFlowerList);
-                                    mRecyclerView.setAdapter(dataListAdapter);
+                                    manager = new LinearLayoutManager(TicketHistory.this);
+                                    myRecView.setLayoutManager(manager);
+//                                mAdapt = new Ticket_History__Adapter(id, logo,name,status,serviceRequestNo,state, TicketHistory.this, totalPages);
+                                    myRecView.setAdapter(mAdapt);
+
+
+//                                    dataListAdapter = new Ticket_History_Adapter(TicketHistory.this, mFlowerList);
+//                                    dataListAdapter.setDataList(mFlowerList);
+//                                    mRecyclerView.setAdapter(dataListAdapter);
 
                                 }
 
@@ -278,15 +302,11 @@ String statusCode;
 
 
 
+        // Enqueuing request with singleton class
+//        Singleton.getInstance(this).addToRequestQue(sr);
+
+
 
 
     }
-
-
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-    }
-
 }

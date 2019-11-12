@@ -118,7 +118,7 @@ TextView date_value;
             public void onClick(View v) {
 
                 startActivity(new Intent(MapActivity.this , AboutUsActivity.class));
-                finish();
+//                finish();
             }
         });
 
@@ -197,8 +197,6 @@ TextView date_value;
     public void onMapReady(GoogleMap googleMap)
     {
         mGoogleMap = googleMap;
-
-
 
 //        mGoogleMap.setMinZoomPreference(3.0f);
 //        mGoogleMap.setMaxZoomPreference(5.5f);
@@ -348,12 +346,12 @@ TextView date_value;
 
         else
         {
-            startActivity(new Intent(MapActivity.this, Home_Screen.class));
+            startActivity(new Intent(MapActivity.this , Home_Screen.class));
             finish();
         }
 
 
 
-        super.onBackPressed();
+
     }
 }

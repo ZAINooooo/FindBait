@@ -2,10 +2,9 @@
     <string name="app_name">FindABait</string>
 
 
-
     <string-array name="spinner_value">
         <item>Completed</item>
-        <item>InComplete</item>
+        <item>Incomplete</item>
     </string-array>
 
 </resources>

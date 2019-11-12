@@ -87,6 +87,8 @@ TextView namess, statuss,idss,states;
 
         service_ids = getIntent().getIntExtra("service_id" , 0);
 
+        Log.d("ServiceIds" , ""+service_ids);
+
 
         face = Typeface.createFromAsset(TicketDetail.this.getAssets(),"ptsanswebbold.ttf");
         face2 = Typeface.createFromAsset(TicketDetail.this.getAssets(),"ptsanswebregular.ttf");
@@ -154,7 +156,7 @@ TextView namess, statuss,idss,states;
             public void onClick(View v) {
 
                 startActivity(new Intent(TicketDetail.this , AboutUsActivity.class));
-                finish();
+//                finish();
             }
         });
 
@@ -362,6 +364,10 @@ TextView namess, statuss,idss,states;
                     public void onResponse(String response) {
 
 
+                        String response_body = response;
+                        Log.d("Response_All" , ""+response_body);
+
+
                         try
                         {
                              jsonObject = new JSONObject(response);
@@ -371,6 +377,8 @@ TextView namess, statuss,idss,states;
                             serviceRequestNo = jsonObjCurrently2.getString("serviceRequestNo");
 
                             name = jsonObjCurrently2.getString("name");
+
+
                             logo = jsonObjCurrently2.getString("logo");
                             status = jsonObjCurrently2.getString("status");
                             state = jsonObjCurrently2.getString("state");
@@ -381,11 +389,20 @@ TextView namess, statuss,idss,states;
                             technical_rating = jsonObjCurrently2.getString("technicianComment");
 
 
+                            Log.d("Data_All" , ""+name + "          " + logo   +       "         " + status   + "         " +state + "      " + startDate + "         " +endDate);
+
                             float val = (float) rating;
                             simpleRatingBar.setRating(val);
-                            type_something.setText(technical_rating);
 
+                            if (technical_rating.equals(""))
+                            {
+                                type_something.setText("");
+                            }
 
+                            else
+                            {
+                                type_something.setText(technical_rating);
+                            }
 
 
                             namess.setText(name);
@@ -427,8 +444,6 @@ TextView namess, statuss,idss,states;
                         {
                             e.printStackTrace();
                         }
-
-
                     }
                 }, new com.android.volley.Response.ErrorListener() {
             @Override

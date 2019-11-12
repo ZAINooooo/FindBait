@@ -63,7 +63,7 @@ ImageView date_value3;
             public void onClick(View v) {
 
                 startActivity(new Intent(SuccessActivity.this , AboutUsActivity.class));
-                finish();
+//                finish();
             }
         });
 

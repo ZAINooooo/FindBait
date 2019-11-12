@@ -84,7 +84,7 @@ String  result;
             public void onClick(View v) {
 
                 startActivity(new Intent(ThirdScreen.this , AboutUsActivity.class));
-                finish();
+//                finish();
             }
         });
 
