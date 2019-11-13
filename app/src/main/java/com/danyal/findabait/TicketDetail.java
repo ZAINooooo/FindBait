@@ -364,9 +364,7 @@ TextView namess, statuss,idss,states;
                     public void onResponse(String response) {
 
 
-                        String response_body = response;
-                        Log.d("Response_All" , ""+response_body);
-
+                        Log.d("Response_All" , ""+ response);
 
                         try
                         {
@@ -375,19 +373,14 @@ TextView namess, statuss,idss,states;
                             JSONObject jsonObjCurrently2= jsonObjCurrently.getJSONObject("services");
 
                             serviceRequestNo = jsonObjCurrently2.getString("serviceRequestNo");
-
                             name = jsonObjCurrently2.getString("name");
-
-
                             logo = jsonObjCurrently2.getString("logo");
                             status = jsonObjCurrently2.getString("status");
                             state = jsonObjCurrently2.getString("state");
                             startDate = jsonObjCurrently2.getString("startDate");
                             endDate = jsonObjCurrently2.getString("endDate");
-
                             rating = jsonObjCurrently2.getInt("rating");
                             technical_rating = jsonObjCurrently2.getString("technicianComment");
-
 
                             Log.d("Data_All" , ""+name + "          " + logo   +       "         " + status   + "         " +state + "      " + startDate + "         " +endDate);
 
@@ -454,7 +447,7 @@ TextView namess, statuss,idss,states;
                     public void run() {
 
                         Log.d("Error_Fetch", error.toString());
-//                            Utilss.hideSweetLoader(pDialog);
+
                     }
 
                 });
